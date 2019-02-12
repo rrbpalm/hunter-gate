@@ -23,3 +23,6 @@ hunter_add_version(
     afbe5038b59db8f0c54712d734ed0088232cfdee
 )
 
+hunter_pick_scheme(DEFAULT url_sha1_cmake)
+hunter_cacheable(ZLIB)
+hunter_download(PACKAGE_NAME ZLIB)
