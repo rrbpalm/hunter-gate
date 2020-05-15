@@ -8,7 +8,7 @@
 #
 # Adds to the environment variables:
 #   PATH=<root-id>/bin
-#   PKG_CONFIG_LIBDIR=<root-id>/{lib,share}/pkgconfig
+#   PKG_CONFIG_PATH=<root-id>/{lib,share}/pkgconfig
 #
 # Adds to autotools flags:
 #   CPPFLAGS=-I<root-id>/include
@@ -116,7 +116,7 @@ function(hunter_autotools_project target_name)
 
   set(d1 "${PARAM_GLOBAL_INSTALL_DIR}/lib/pkgconfig")
   set(d2 "${PARAM_GLOBAL_INSTALL_DIR}/share/pkgconfig")
-  set(shell_pkg_config_libdir "PKG_CONFIG_LIBDIR=${d1}:${d2}")
+  set(shell_pkg_config_libdir "PKG_CONFIG_PATH=${d1}:${d2}")
 
   set(clear_vars_shell_script "${PARAM_HUNTER_SELF}/scripts/clear-all.sh")
 
