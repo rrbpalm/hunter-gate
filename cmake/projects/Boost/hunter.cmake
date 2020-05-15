@@ -59,7 +59,16 @@ hunter_add_version(
     SHA1
     8c9829ce5e8f0b2b582f8ee1a6103c037a154aa3
 )
-
+hunter_add_version(
+    PACKAGE_NAME
+    Boost
+    VERSION
+    "1.66.0-p1"
+    URL
+    "https://github.com/rrbpalm/hunter-boost/archive/v1.66.0-p1.zip"
+    SHA1
+    785f291c55ef0fd97a64d31d2bf8bb6a1d357de4
+)
 hunter_add_version(
     PACKAGE_NAME
     Boost
