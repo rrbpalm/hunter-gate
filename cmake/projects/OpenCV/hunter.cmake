@@ -409,6 +409,7 @@ hunter_cmake_args(
         #  it might pick up the host version
         WITH_CUDA=OFF
         WITH_CUFFT=OFF
+        WITH_GTK=ON
 )
 
 # Pick a download scheme
