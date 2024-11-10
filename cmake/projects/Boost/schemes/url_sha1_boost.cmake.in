@@ -1,7 +1,7 @@
 # Copyright (c) 2013, 2015 Ruslan Baratov
 # All rights reserved.
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(Hunter)
 
 include(ExternalProject) # ExternalProject_Add
@@ -53,11 +53,15 @@ if(CMAKE_HOST_WIN32)
   set(install_cmd "b2")
   if("@MSVC@")
     set(HUNTER_MSVC_VCVARSALL "@HUNTER_MSVC_VCVARSALL@")
-    set(HUNTER_MSVC_ARCH "@HUNTER_MSVC_ARCH@")
+    set(HUNTER_MSVC_ARCH_HOST "@HUNTER_MSVC_ARCH_HOST@")
     set(HUNTER_PACKAGE_SOURCE_DIR "@HUNTER_PACKAGE_SOURCE_DIR@")
     configure_file("@HUNTER_PACKAGE_SCRIPT_DIR@/patched_boostrap.bat.in" "@HUNTER_PACKAGE_DOWNLOAD_DIR@/patched_boostrap.bat")
     set(patch_cmd "@CMAKE_COMMAND@" -E copy "@HUNTER_PACKAGE_DOWNLOAD_DIR@/patched_boostrap.bat" "@HUNTER_PACKAGE_SOURCE_DIR@/patched_boostrap.bat")
     set(bootstrap_cmd "patched_boostrap.bat")
+  elseif("@MSYS@")
+    set(install_cmd "./b2")
+    set(patch_cmd "@CMAKE_COMMAND@" -E echo "Dummy patch command")
+    set(bootstrap_cmd "./bootstrap.sh")
   else()
     set(patch_cmd "@CMAKE_COMMAND@" -E echo "Dummy patch command")
     set(bootstrap_cmd "bootstrap.bat")
@@ -67,6 +71,8 @@ else()
   set(bootstrap_cmd "./bootstrap.sh")
   set(patch_cmd "@CMAKE_COMMAND@" -E echo "Dummy patch command")
 endif()
+
+string(COMPARE EQUAL "@CMAKE_CXX_COMPILER_ID@" "Clang" compiler_is_clang)
 
 if("@MINGW@")
   # Test scenario: MinGW installed in system, Visual Studio - not
@@ -78,6 +84,8 @@ if(APPLE)
       bootstrap_cmd
       . "@HUNTER_GLOBAL_SCRIPT_DIR@/clear-all.sh" && ${bootstrap_cmd}
   )
+elseif(compiler_is_clang AND NOT CMAKE_CROSSCOMPILING)
+  list(APPEND bootstrap_cmd "--with-toolset=clang")
 endif()
 
 if("@HUNTER_PACKAGE_LOG_BUILD@")
@@ -98,6 +106,12 @@ configure_file(
   "@HUNTER_PACKAGE_BUILD_DIR@/append-boost-config-macros.cmake"
   @ONLY
 )
+
+
+set(pass_boost_no_cmake_config )
+if (@HUNTER_Boost_VERSION@ VERSION_GREATER_EQUAL 1.72.0 AND NOT USE_CONFIG_FROM_BOOST)
+  set(pass_boost_no_cmake_config --no-cmake-config)
+endif()
 
 ExternalProject_Add(
     "@HUNTER_EP_NAME@"
@@ -127,12 +141,14 @@ ExternalProject_Add(
     1
     INSTALL_COMMAND
     ${install_cmd}
+
     --layout=tagged
     -d0
     install
     ${boost_list}
     "--prefix=@HUNTER_PACKAGE_INSTALL_PREFIX@"
     --ignore-site-config # Ignore Gentoo specific optimization "none" in site config that only the patched bjam of Gentoo can understand.
+    ${pass_boost_no_cmake_config}
     COMMAND # Copy license files
     "@CMAKE_COMMAND@"
     "-C@HUNTER_ARGS_FILE@" # for 'HUNTER_INSTALL_LICENSE_FILES'
@@ -140,6 +156,9 @@ ExternalProject_Add(
     "-Ddstdir=@HUNTER_PACKAGE_LICENSE_DIR@"
     -P
     "@HUNTER_SELF@/scripts/try-copy-license.cmake"
+
+    # ineffective on older Boost than 1.72.0 as we resort on --no-cmake-config
+
     LOG_CONFIGURE ${log_build}
     LOG_BUILD ${log_build}
     LOG_INSTALL ${log_install}
@@ -150,4 +169,6 @@ set(HUNTER_SELF "@HUNTER_SELF@")
 set(HUNTER_PACKAGE_INSTALL_PREFIX "@HUNTER_PACKAGE_INSTALL_PREFIX@")
 set(HUNTER_Boost_VERSION "@HUNTER_Boost_VERSION@")
 
-hunter_install_boost_config()
+if(NOT USE_CONFIG_FROM_BOOST OR HUNTER_Boost_VERSION VERSION_LESS 1.72.0)
+  hunter_install_boost_config()
+endif()

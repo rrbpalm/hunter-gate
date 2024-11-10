@@ -1,7 +1,7 @@
 # Copyright (c) 2013, 2015 Ruslan Baratov
 # All rights reserved.
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(Hunter)
 
 include(ExternalProject) # ExternalProject_Add
@@ -31,13 +31,13 @@ hunter_assert_not_empty_string("@HUNTER_GLOBAL_SCRIPT_DIR@")
 hunter_assert_not_empty_string("@HUNTER_TLS_VERIFY@")
 
 # Supported macOS architectures:
-# i386, x86_64, ppc, ppc64
+# i386, x86_64, ppc, ppc64, arm64
 set(configure_command "./Configure")
 set(configure_architectures @CMAKE_OSX_ARCHITECTURES@)
 
 if(NOT configure_architectures)
-  hunter_status_debug("Using default macOS architecture: x86_64")
-  set(configure_architectures "x86_64")
+  hunter_status_debug("Using CMAKE_SYSTEM_PROCESSOR to set default macOS architecture to: @CMAKE_SYSTEM_PROCESSOR@")
+  set(configure_architectures "@CMAKE_SYSTEM_PROCESSOR@")
 endif()
 
 # OpenSSL appends the version number differently by version
@@ -168,6 +168,8 @@ foreach(arch ${configure_architectures})
     set(configure_arch "darwin-i386-cc")
   elseif("${arch}" STREQUAL "ppc")
     set(configure_arch "darwin-ppc-cc")
+  elseif("${arch}" STREQUAL "arm64")
+    set(configure_arch "darwin64-arm64-cc")
   else()
     hunter_user_error("Could not find the macOS architecture ${arch}. Please update the CMAKE_OSX_ARCHITECTURES option in your toolchain.")
   endif()
@@ -192,6 +194,7 @@ foreach(arch ${configure_architectures})
       "${configure_arch}"
       "${configure_opts}"
       "--prefix=@HUNTER_PACKAGE_INSTALL_PREFIX@"
+      "--libdir=lib"
       BUILD_COMMAND
       "${build_command}"
       BUILD_IN_SOURCE

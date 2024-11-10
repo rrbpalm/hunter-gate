@@ -17,6 +17,83 @@ hunter_add_version(
     PACKAGE_NAME
     Eigen
     VERSION
+    "3.4.0"
+    URL
+    "https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz"
+    SHA1
+    d222db69a9e87d9006608e029d1039039f360b52
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    Eigen
+    VERSION
+    "3.3.9"
+    URL
+    "https://gitlab.com/libeigen/eigen/-/archive/3.3.9/eigen-3.3.9.tar.gz"
+    SHA1
+    6a5a43a327b3aaeb7e74dc32bf1d7011cf6f149c
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    Eigen
+    VERSION
+    "3.3.8"
+    URL
+    "https://gitlab.com/libeigen/eigen/-/archive/3.3.8/eigen-3.3.8.tar.gz"
+    SHA1
+    aba0afb30cfbc4a4b0ce03fb2ee658ff7f674301
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    Eigen
+    VERSION
+    "3.3.8-b11f817"
+    URL
+    "https://gitlab.com/libeigen/eigen/-/archive/b11f817bcff04276f3024d6780f56a137968b81a/eigen-b11f817bcff04276f3024d6780f56a137968b81a.tar.gz"
+    SHA1
+    2b57944e2d36cc210d142f1b8aa8f1d1d491b655
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    Eigen
+    VERSION
+    "3.3.7"
+    URL
+    "https://github.com/eigenteam/eigen-git-mirror/archive/3.3.7.tar.gz"
+    SHA1
+    3a299537e429a3a11e4038616b867d004014f262
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    Eigen
+    VERSION
+    "3.3.6"
+    URL
+    "https://github.com/eigenteam/eigen-git-mirror/archive/3.3.6.tar.gz"
+    SHA1
+    328824ffd5487f989e27326133d2d9106acc4fdd
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    Eigen
+    VERSION
+    "3.3.5"
+    URL
+    "https://github.com/eigenteam/eigen-git-mirror/archive/3.3.5.tar.gz"
+    SHA1
+    c1801a3b37c7fd734c756b9dce4d00a3cd685b7a
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    Eigen
+    VERSION
     "3.3.4-p1"
     URL
     "https://github.com/hunter-packages/eigen/archive/v3.3.4-p1.tar.gz"
@@ -121,7 +198,11 @@ endif()
 hunter_cmake_args(
     Eigen
     CMAKE_ARGS
+    # explicitly disable gfortran usage
+    CMAKE_Fortran_COMPILER=NOTFOUND
+    # no need for tests or docs to save build-time
     BUILD_TESTING=OFF
+    EIGEN_BUILD_DOC=OFF
     HUNTER_INSTALL_LICENSE_FILES=COPYING.MPL2
     ${_android_args}
 )

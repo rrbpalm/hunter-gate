@@ -51,7 +51,7 @@ reduce the size from 70.7 MB to 17.7 MB, the unpack time dropped to 8 seconds.
 As usual downloading from cache is the best option, e.g.  Boost.system Release
 + Debug archive has 154 KB size:
 
-* https://github.com/ingenue/hunter-cache/releases/download/cache-234d975/234d9755a85b09bcd2f266d2620707ccd514020e.tar.bz2
+* https://github.com/cpp-pm/hunter-cache/releases/download/cache-234d975/234d9755a85b09bcd2f266d2620707ccd514020e.tar.bz2
 
 .. _id calculation:
 
@@ -69,10 +69,11 @@ it may take much longer then with Makefile generator:
 
   > rm -rf _builds
 
-.. code-block:: none
+.. code-block:: cmake
 
-  > cat CMakeLists.txt
-  cmake_minimum_required(VERSION 3.2)
+  # CMakeLists.txt
+
+  cmake_minimum_required(VERSION 3.5)
   project(foo)
 
 .. code-block:: none
@@ -109,11 +110,12 @@ option:
 
   > rm -rf _builds
 
-.. code-block:: none
-  :emphasize-lines: 4-8
+.. code-block:: cmake
+  :emphasize-lines: 5-9
 
-  > cat CMakeLists.txt
-  cmake_minimum_required(VERSION 3.2)
+  # CMakeLists.txt
+
+  cmake_minimum_required(VERSION 3.5)
 
   option(
       HUNTER_NO_TOOLCHAIN_ID_RECALCULATION
@@ -123,8 +125,8 @@ option:
 
   include("cmake/HunterGate.cmake")
   HunterGate(
-      URL "https://github.com/ruslo/hunter/archive/v0.22.22.tar.gz"
-      SHA1 "83f7dd182930dee784fafd29745f55e7cd06ca34"
+      URL "https://github.com/cpp-pm/hunter/archive/v0.23.297.tar.gz"
+      SHA1 "3319fe6a3b08090df7df98dee75134d68e2ef5a3"
   )
   project(foo)
 
@@ -163,10 +165,11 @@ local project.
 
 As an example here are actions that can lead to incorrect cache state:
 
-.. code-block:: none
+.. code-block:: cmake
 
-  > cat CMakeLists.txt
-  cmake_minimum_required(VERSION 3.2)
+  # CMakeLists.txt
+
+  cmake_minimum_required(VERSION 3.5)
 
   option(
       HUNTER_NO_TOOLCHAIN_ID_RECALCULATION
@@ -184,16 +187,17 @@ As an example here are actions that can lead to incorrect cache state:
 
   include("cmake/HunterGate.cmake")
   HunterGate(
-      URL "https://github.com/ruslo/hunter/archive/v0.22.22.tar.gz"
-      SHA1 "83f7dd182930dee784fafd29745f55e7cd06ca34"
+      URL "https://github.com/cpp-pm/hunter/archive/v0.23.297.tar.gz"
+      SHA1 "3319fe6a3b08090df7df98dee75134d68e2ef5a3"
   )
   project(foo)
 
   hunter_add_package(gflags)
 
-.. code-block:: none
+.. code-block:: cmake
 
-  > cat toolchain.cmake
+  # toolchain.cmake
+
   set(CMAKE_CXX_STANDARD 11)
 
 Run configure stage to build ``gflags``:
@@ -210,18 +214,20 @@ Toolchain with C++11 standard will have ID ``385a6e9``.
 
 Now set standard to 14:
 
-.. code-block:: none
+.. code-block:: cmake
 
-  > cat toolchain.cmake
+  # toolchain.cmake
+
   set(CMAKE_CXX_STANDARD 14)
 
 And add "GTest" to CMakeLists.txt:
 
-.. code-block:: none
-  :emphasize-lines: 26
+.. code-block:: cmake
+  :emphasize-lines: 27
 
-  > cat CMakeLists.txt
-  cmake_minimum_required(VERSION 3.2)
+  # CMakeLists.txt
+
+  cmake_minimum_required(VERSION 3.5)
 
   option(
       HUNTER_NO_TOOLCHAIN_ID_RECALCULATION
@@ -239,8 +245,8 @@ And add "GTest" to CMakeLists.txt:
 
   include("cmake/HunterGate.cmake")
   HunterGate(
-      URL "https://github.com/ruslo/hunter/archive/v0.22.22.tar.gz"
-      SHA1 "83f7dd182930dee784fafd29745f55e7cd06ca34"
+      URL "https://github.com/cpp-pm/hunter/archive/v0.23.297.tar.gz"
+      SHA1 "3319fe6a3b08090df7df98dee75134d68e2ef5a3"
   )
   project(foo)
 
@@ -281,7 +287,7 @@ Xcode generator only:
 .. code-block:: cmake
   :emphasize-lines: 3-9
 
-  cmake_minimum_required(VERSION 3.2)
+  cmake_minimum_required(VERSION 3.5)
 
   if(CMAKE_GENERATOR STREQUAL "Xcode")
     option(
@@ -293,7 +299,7 @@ Xcode generator only:
 
   include("cmake/HunterGate.cmake")
   HunterGate(
-      URL "https://github.com/ruslo/hunter/archive/v0.22.22.tar.gz"
-      SHA1 "83f7dd182930dee784fafd29745f55e7cd06ca34"
+      URL "https://github.com/cpp-pm/hunter/archive/v0.23.297.tar.gz"
+      SHA1 "3319fe6a3b08090df7df98dee75134d68e2ef5a3"
   )
   project(foo)

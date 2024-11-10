@@ -48,6 +48,9 @@
 #       --enable-feature
 #       --disable-other
 #       --with-library
+#     PATCH_COMMAND                           # add a patch command
+#       ${CMAKE_COMMAND} -E copy "@HUNTER_PACKAGE_SCRIPT_DIR@/patch.sh" "@HUNTER_PACKAGE_SOURCE_DIR@"
+#       COMMAND "./patch.sh"
 #     BOOTSTRAP                               # add a bootstrap command to be run
 #       "./autogen.sh"                        # before ./configure such as 
 #                                             # ./autogen.sh or ./bootstrap
@@ -64,11 +67,12 @@ include(hunter_assert_not_empty_string)
 # Packages to test this function:
 # * xau
 # * gstreamer
+# * libxml2
+# * ncursesw
 function(hunter_autotools_project target_name)
   set(optional_params)
   set(one_value_params
       HUNTER_SELF
-      URL
       URL_HASH
       DOWNLOAD_DIR
       SOURCE_DIR
@@ -83,8 +87,10 @@ function(hunter_autotools_project target_name)
       BOOTSTRAP
   )
   set(multi_value_params
+      URL
       PACKAGE_CONFIGURATION_TYPES
       EXTRA_FLAGS
+      PATCH_COMMAND
   )
   cmake_parse_arguments(
       PARAM
@@ -184,6 +190,8 @@ function(hunter_autotools_project target_name)
         INSTALL_DIR
           ${PARAM_INSTALL_DIR}
           # not used, just avoid creating Install/<name> empty directory
+        PATCH_COMMAND
+          ${PARAM_PATCH_COMMAND}
         CONFIGURE_COMMAND
           "${PARAM_BOOTSTRAP}"
         COMMAND
@@ -245,9 +253,9 @@ function(hunter_autotools_project target_name)
       # Extra space at the end of the arch_flags is needed below when appending
       # to configure_opts, please do not remove!
       if(is_simulator)
-        set(arch_flags "-arch ${ios_architecture} -isysroot ${IPHONESIMULATOR_SDK_ROOT} -miphoneos-version-min=${IOS_SDK_VERSION} ")
+        set(arch_flags "-arch ${ios_architecture} -isysroot ${IPHONESIMULATOR_SDK_ROOT} ")
       else()
-        set(arch_flags "-arch ${ios_architecture} -isysroot ${IPHONEOS_SDK_ROOT} -miphoneos-version-min=${IOS_SDK_VERSION} ")
+        set(arch_flags "-arch ${ios_architecture} -isysroot ${IPHONEOS_SDK_ROOT} ")
       endif()
       set(arch_install_dir
           ${multi_arch_install_root}/${ios_architecture}
@@ -295,6 +303,8 @@ function(hunter_autotools_project target_name)
           INSTALL_DIR
             ${arch_install_dir}
             # not used, just avoid creating Install/<name> empty directory
+          PATCH_COMMAND
+            ${PARAM_PATCH_COMMAND}
           CONFIGURE_COMMAND
             "${PARAM_BOOTSTRAP}"
           COMMAND

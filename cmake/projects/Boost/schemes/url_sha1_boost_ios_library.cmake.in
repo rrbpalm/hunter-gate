@@ -1,7 +1,7 @@
 # Copyright (c) 2013, Ruslan Baratov
 # All rights reserved.
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(Hunter)
 
 include(ExternalProject) # ExternalProject_Add
@@ -133,6 +133,10 @@ set(
     --user-config="${boost_user_jam}"
 )
 
+if (@HUNTER_Boost_VERSION@ VERSION_GREATER_EQUAL 1.72.0 AND NOT USE_CONFIG_FROM_BOOST)
+  list(APPEND build_opts --no-cmake-config )
+endif()
+
 set(BOOST_VERSION "@HUNTER_Boost_VERSION@")
 
 # Use:
@@ -145,11 +149,21 @@ hunter_boost_component_b2_args(
 
 list(APPEND build_opts ${b2_component_opts})
 
-hunter_dump_cmake_flags()
+# SKIP_DEPLOYMENT_TARGET as different targets (ios, iossim, etc) need different ones
+hunter_dump_cmake_flags(SKIP_DEPLOYMENT_TARGET)
 # -> CMAKE_CXX_FLAGS
 
-if(CMAKE_CXX_FLAGS)
-  list(APPEND build_opts "cxxflags=${CMAKE_CXX_FLAGS}")
+set(cmake_cxx_flags_iphoneos "${CMAKE_CXX_FLAGS}")
+set(cmake_cxx_flags_iphonesimulator "${CMAKE_CXX_FLAGS}")
+
+if(IOS_DEPLOYMENT_SDK_VERSION)
+  set(cmake_cxx_flags_iphoneos "${cmake_cxx_flags_iphoneos} -miphoneos-version-min=${IOS_DEPLOYMENT_SDK_VERSION}")
+  set(cmake_cxx_flags_iphonesimulator "${cmake_cxx_flags_iphonesimulator} -mios-simulator-version-min=${IOS_DEPLOYMENT_SDK_VERSION}")
+endif()
+
+if(CMAKE_CXX_FLAGS AND IOS_DEPLOYMENT_SDK_VERSION)
+  list(APPEND build_opts_iphoneos "cxxflags=${cmake_cxx_flags_iphoneos}")
+  list(APPEND build_opts_iphonesimulator "cxxflags=${cmake_cxx_flags_iphonesimulator}")
 endif()
 
 string(COMPARE NOTEQUAL "@HUNTER_JOBS_OPTION@" "" have_jobs)
@@ -216,7 +230,11 @@ if(has_iphoneos)
       BUILD_IN_SOURCE
       1
       INSTALL_COMMAND
-      ""
+      ./b2
+      -d0
+      ${build_opts_iphoneos}
+      install
+      "--prefix=@HUNTER_PACKAGE_INSTALL_PREFIX@"  
   )
 else()
   # Add dummy target
@@ -247,10 +265,17 @@ else()
 endif()
 
 if(has_isim)
+  if (has_iphoneos)
+    # CMake variable replacement means we need a dummy command, empty string is ignored
+    set(skip_download "DOWNLOAD_COMMAND" "${CMAKE_COMMAND}" -E echo "SKIPPING DOWNLOAD STEP")
+  endif()
+
   ExternalProject_Add(
       "@HUNTER_EP_NAME@-ios_sim"
-      DOWNLOAD_COMMAND
-      ""
+      URL
+      @HUNTER_PACKAGE_URL@
+      URL_HASH
+      SHA1=@HUNTER_PACKAGE_SHA1@
       DOWNLOAD_DIR
       "@HUNTER_PACKAGE_DOWNLOAD_DIR@"
       TLS_VERIFY
@@ -260,6 +285,7 @@ if(has_isim)
       INSTALL_DIR
       "@HUNTER_PACKAGE_INSTALL_PREFIX@"
           # not used, just avoid creating Install/<name> empty directory
+      "${skip_download}"
       CONFIGURE_COMMAND
       ${bootstrap}
       BUILD_COMMAND
@@ -269,7 +295,11 @@ if(has_isim)
       BUILD_IN_SOURCE
       1
       INSTALL_COMMAND
-      ""
+      ./b2
+      -d0
+      ${build_opts_iphonesimulator}
+      install
+      "--prefix=@HUNTER_PACKAGE_INSTALL_PREFIX@"
   )
 else()
   # Add dummy target
@@ -372,4 +402,6 @@ set(HUNTER_SELF "@HUNTER_SELF@")
 set(HUNTER_PACKAGE_INSTALL_PREFIX "@HUNTER_PACKAGE_INSTALL_PREFIX@")
 set(HUNTER_Boost_VERSION "@HUNTER_Boost_VERSION@")
 
-hunter_install_boost_config()
+if(NOT USE_CONFIG_FROM_BOOST OR HUNTER_Boost_VERSION VERSION_LESS 1.72.0)
+  hunter_install_boost_config()
+endif()

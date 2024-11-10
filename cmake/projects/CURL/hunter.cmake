@@ -98,6 +98,49 @@ hunter_add_version(
     c15efe3c6c77c5f5d5b098b73d31cc3fbbc0d2fc
 )
 
+hunter_add_version(
+    PACKAGE_NAME
+    CURL
+    VERSION
+    "7.74.0-p2"
+    URL
+    "https://github.com/cpp-pm/curl/archive/refs/tags/v7.74.0-p2.tar.gz"
+    SHA1
+    2f5c1a24e34fcced7c0ba8ab9f86859e7bceb63a
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    CURL
+    VERSION
+    "7.88.1-p0"
+    URL
+    "https://github.com/cpp-pm/curl/archive/refs/tags/v7.88.1-p0.tar.gz"
+    SHA1
+    a9f16354db1aa33c7635ff6542f03720202cd0ee
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    CURL
+    VERSION
+    "8.4.0-p0"
+    URL
+    "https://github.com/cpp-pm/curl/archive/refs/tags/v8.4.0-p0.tar.gz"
+    SHA1
+    ff363d2ab97a46561216682c6295f436c61bec9d
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    CURL
+    VERSION
+    "8.5.0-p0"
+    URL
+    "https://github.com/cpp-pm/curl/archive/refs/tags/v8.5.0-p0.tar.gz"
+    SHA1
+    8fa4300089fef1977dc636c1d3923726a8a76372
+)
 
 if (ANDROID OR IOS OR RASPBERRY_PI OR OPENWRT)
   set(_curl_cmake_args
@@ -116,16 +159,31 @@ else()
   set(_curl_cmake_args "")
 endif()
 
-hunter_cmake_args(
-    CURL
-    CMAKE_ARGS
-        BUILD_CURL_TESTS=OFF
-        BUILD_CURL_EXE=OFF
-        CMAKE_USE_OPENSSL=ON
-        CMAKE_USE_LIBSSH2=OFF
-        BUILD_TESTING=OFF
-        ${_curl_cmake_args}
-)
+if(HUNTER_CURL_VERSION VERSION_GREATER_EQUAL 7.81.0)
+    hunter_cmake_args(
+        CURL
+        CMAKE_ARGS
+            BUILD_CURL_TESTS=OFF
+            BUILD_CURL_EXE=OFF
+            CURL_USE_OPENSSL=ON
+            CURL_USE_LIBSSH2=OFF
+            CURL_DISABLE_LDAP=ON
+            BUILD_TESTING=OFF
+            USE_LIBIDN2=OFF
+            ${_curl_cmake_args}
+    )
+else()
+    hunter_cmake_args(
+        CURL
+        CMAKE_ARGS
+            BUILD_CURL_TESTS=OFF
+            BUILD_CURL_EXE=OFF
+            CMAKE_USE_OPENSSL=ON
+            CMAKE_USE_LIBSSH2=OFF
+            BUILD_TESTING=OFF
+            ${_curl_cmake_args}
+    )
+endif()
 
 hunter_pick_scheme(DEFAULT url_sha1_cmake)
 hunter_cacheable(CURL)

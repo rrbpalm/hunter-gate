@@ -39,7 +39,117 @@ hunter_add_version(
     "https://github.com/fmtlib/fmt/archive/4.1.0.tar.gz"
     SHA1
     9df8f7a70c1b45ffe308e8e3f4f92b31cb927a7a
-)  
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "5.2.1"
+    URL
+    "https://github.com/fmtlib/fmt/archive/5.2.1.tar.gz"
+    SHA1
+    8b38f1ecdf137e8ca24e9b66145c1b94fa5f921d
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "5.3.0"
+    URL
+    "https://github.com/fmtlib/fmt/archive/5.3.0.tar.gz"
+    SHA1
+    787a568322e08cebb1e164b3c9766e27ca18b2c8
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "6.0.0"
+    URL
+    "https://github.com/fmtlib/fmt/archive/6.0.0.tar.gz"
+    SHA1
+    40635ee94d24cb9856422293c04150017a8911df
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "6.1.0"
+    URL
+    "https://github.com/fmtlib/fmt/archive/6.1.0.tar.gz"
+    SHA1
+    f013c18e649f5b93c1fe100982d46f9d6f94dbdd
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "6.1.1"
+    URL
+    "https://github.com/fmtlib/fmt/archive/6.1.1.tar.gz"
+    SHA1
+    55912c57acdd7cf10c0e614a47de0e8336a9696a
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "6.1.2"
+    URL
+    "https://github.com/fmtlib/fmt/archive/6.1.2.tar.gz"
+    SHA1
+    dc59b27d461f1af12daf73f3e00d18bf1e9eed78
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "7.1.2"
+    URL
+    "https://github.com/fmtlib/fmt/archive/7.1.2.tar.gz"
+    SHA1
+    59bea0bd88e72ac2769c57d584b0cbed956038cf
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "8.1.1"
+    URL
+    "https://github.com/fmtlib/fmt/archive/8.1.1.tar.gz"
+    SHA1
+    9577d6de8f4e268690b099976810ade9ebef5fb5
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "9.1.0"
+    URL
+    "https://github.com/fmtlib/fmt/archive/9.1.0.tar.gz"
+    SHA1
+    6c0db60f3fa7bd4cf58edc777a2408e0ddfb28b9
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    fmt
+    VERSION
+    "10.1.1"
+    URL
+    "https://github.com/fmtlib/fmt/archive/10.1.1.tar.gz"
+    SHA1
+    e94b38a9efe0d696373a3cb1300dd24f12e2dd9c
+)
 
 hunter_cmake_args(
     fmt

@@ -22,7 +22,7 @@ macro(hunter_finalize)
   string(COMPARE EQUAL "${HUNTER_CACHE_SERVERS}" "" _is_empty)
   if(_is_empty)
     hunter_status_debug("Using default cache server")
-    set(HUNTER_CACHE_SERVERS "https://github.com/ingenue/hunter-cache")
+    set(HUNTER_CACHE_SERVERS "https://github.com/cpp-pm/hunter-cache")
   endif()
 
   hunter_status_debug("List of cache servers:")
@@ -48,13 +48,13 @@ macro(hunter_finalize)
 
   if(_c_enabled AND NOT CMAKE_C_ABI_COMPILED)
     hunter_fatal_error(
-        "ABI not detected for C compiler" WIKI "error.abi.detection.failure"
+        "ABI not detected for C compiler" ERROR_PAGE "error.abi.detection.failure"
     )
   endif()
 
   if(_cxx_enabled AND NOT CMAKE_CXX_ABI_COMPILED)
     hunter_fatal_error(
-        "ABI not detected for CXX compiler" WIKI "error.abi.detection.failure"
+        "ABI not detected for CXX compiler" ERROR_PAGE "error.abi.detection.failure"
     )
   endif()
 
@@ -151,7 +151,7 @@ macro(hunter_finalize)
   if(ANDROID AND CMAKE_VERSION VERSION_LESS "3.7.1")
     hunter_user_error(
         "CMake version 3.7.1+ required for Android platforms, see"
-        " https://docs.hunter.sh/en/latest/quick-start/cmake.html"
+        " https://hunter.readthedocs.io/en/latest/quick-start/cmake.html"
     )
   endif()
 

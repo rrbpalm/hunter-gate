@@ -1,7 +1,7 @@
 # Copyright (c) 2013, 2015 Ruslan Baratov
 # All rights reserved.
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(Hunter)
 
 include(ExternalProject) # ExternalProject_Add
@@ -42,7 +42,7 @@ execute_process(
 if(NOT result EQUAL 0)
   hunter_fatal_error(
       "'xcrun -f clang++' failed"
-      WIKI "error.xcrun.clang"
+      ERROR_PAGE "error.xcrun.clang"
   )
 endif()
 

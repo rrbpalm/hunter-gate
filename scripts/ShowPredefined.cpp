@@ -1,6 +1,6 @@
 
 // This file generated automatically by `create-predefined-list.py` script.
-// * https://github.com/ruslo/hunter
+// * https://github.com/cpp-pm/hunter
 
 #define HUNTER_QUOTE(x) #x
 #define HUNTER_STRING(x) HUNTER_QUOTE(x)
@@ -2873,6 +2873,10 @@
 
 #if defined(__cpp_binary_literals)
 # pragma message(HUNTER_INFO(__cpp_binary_literals))
+#endif
+
+#if defined(__cpp_concepts)
+# pragma message(HUNTER_INFO(__cpp_concepts))
 #endif
 
 #if defined(__cpp_constexpr)

@@ -15,20 +15,20 @@ Examples of such packages:
 * :ref:`pkg.flatbuffers`
 
   * https://github.com/google/flatbuffers
-  * See `flatbuffers/hunter.cmake <https://github.com/ruslo/hunter/blob/08a6cbcf06bb5934b6b18aa1f2028cf56a1063b7/cmake/projects/flatbuffers/hunter.cmake#L23-L32>`__
-  * Testing table: `AppVeyor <https://ci.appveyor.com/project/ingenue/hunter/build/1.0.3215>`__, `Travis <https://travis-ci.org/ingenue/hunter/builds/326881125>`__
+  * See `flatbuffers/hunter.cmake <https://github.com/cpp-pm/hunter/blob/08a6cbcf06bb5934b6b18aa1f2028cf56a1063b7/cmake/projects/flatbuffers/hunter.cmake#L23-L32>`__
+  * Testing table: `AppVeyor <https://ci.appveyor.com/project/cpp-pm/hunter/build/1.0.3215>`__, `Travis <https://travis-ci.org/cpp-pm/hunter/builds/326881125>`__
 
 * :ref:`pkg.rocksdb`
 
   * https://github.com/facebook/rocksdb
-  * See `rocksdb/hunter.cmake <https://github.com/ruslo/hunter/blob/08a6cbcf06bb5934b6b18aa1f2028cf56a1063b7/cmake/projects/rocksdb/hunter.cmake#L19-L23>`__
-  * Testing table: `Travis <https://travis-ci.org/ingenue/hunter/builds/326905326>`__
+  * See `rocksdb/hunter.cmake <https://github.com/cpp-pm/hunter/blob/08a6cbcf06bb5934b6b18aa1f2028cf56a1063b7/cmake/projects/rocksdb/hunter.cmake#L19-L23>`__
+  * Testing table: `Travis <https://travis-ci.org/cpp-pm/hunter/builds/326905326>`__
 
 * :ref:`pkg.nlohmann_json`
 
   * https://github.com/nlohmann/json
-  * See `nlohmann_json/hunter.cmake <https://github.com/ruslo/hunter/blob/08a6cbcf06bb5934b6b18aa1f2028cf56a1063b7/cmake/projects/nlohmann_json/hunter.cmake#L53-L58>`__
-  * Testing table: `AppVeyor <https://ci.appveyor.com/project/ingenue/hunter/build/1.0.3217>`__, `Travis <https://travis-ci.org/ingenue/hunter/builds/326883658>`__
+  * See `nlohmann_json/hunter.cmake <https://github.com/cpp-pm/hunter/blob/08a6cbcf06bb5934b6b18aa1f2028cf56a1063b7/cmake/projects/nlohmann_json/hunter.cmake#L53-L58>`__
+  * Testing table: `AppVeyor <https://ci.appveyor.com/project/cpp-pm/hunter/build/1.0.3217>`__, `Travis <https://travis-ci.org/cpp-pm/hunter/builds/326883658>`__
 
 Default behavior
 ================
@@ -188,8 +188,9 @@ Installation after fix:
 Add package to Hunter
 =====================
 
-Next let's assume user ``hunterbox`` is trying to add ``hunter_box_1`` project
-to Hunter.
+Next let's assume user `hunterbox <https://github.com/hunterbox>`__ is
+trying to add `hunter_box_1 <https://github.com/hunterbox/hunter_box_1>`__
+project to Hunter.
 
 .. admonition:: Examples on GitHub
 
@@ -201,7 +202,7 @@ C++:
 
 .. code-block:: cpp
 
-  #include <hunter_box_1.hpp>
+  #include <hunter_box_1/hunter_box_1.hpp>
 
   int main() {
     hunter_box_1::foo();
@@ -218,7 +219,7 @@ CMake with Hunter:
 
 .. code-block:: cmake
 
-  hunter_add_package(hunter_box_1) 
+  hunter_add_package(hunter_box_1)
   find_package(hunter_box_1 CONFIG REQUIRED)
   target_link_libraries(... hunter_box_1::hunter_box_1)
 
@@ -228,19 +229,13 @@ In Hunter sources:
 * ``examples/hunter_box_1`` directory with example for testing
 * ``docs/packages/pkg/hunter_box_1.rst`` documentation for package
 
-Git branches (will be covered in details later):
-
-* ``pkg.hunter_box_1`` branch for testing
-* ``upload.hunter_box_1`` branch for uploading
-* ``pr.hunter_box_1`` work-in-progress branch for adding/updating package
-
 Fork Hunter
 ===========
 
 Hunter hosted on GitHub service where common way to add code is to fork
 project and create pull request.
 
-Fork `ruslo/hunter <https://github.com/ruslo/hunter>`__, clone
+Fork `cpp-pm/hunter <https://github.com/cpp-pm/hunter>`__, clone
 `your fork <https://github.com/hunterbox/hunter>`__ and initialize all
 submodules:
 
@@ -273,9 +268,8 @@ Download release archive and calculate ``SHA1``:
 
 .. code-block:: none
 
-  > wget https://github.com/hunterbox/hunter_box_1/archive/v1.0.0.tar.gz
-  > openssl sha1 v1.0.0.tar.gz
-  SHA1(v1.0.0.tar.gz)= c724e0f8a4ebc95cf7ba628b89b998b3b3c2697d
+  > wget -O- https://github.com/hunterbox/hunter_box_1/archive/v1.0.0.tar.gz | openssl sha1
+  SHA1(stdin)= 4fa7fe75629f148a61cedc6ba0bce74f177a6747
 
 Add this information to ``cmake/projects/hunter_box_1/hunter.cmake`` file:
 
@@ -297,28 +291,61 @@ Add this information to ``cmake/projects/hunter_box_1/hunter.cmake`` file:
       URL
       "https://github.com/hunterbox/hunter_box_1/archive/v1.0.0.tar.gz"
       SHA1
-      c724e0f8a4ebc95cf7ba628b89b998b3b3c2697d
+      4fa7fe75629f148a61cedc6ba0bce74f177a6747
   )
 
   hunter_pick_scheme(DEFAULT url_sha1_cmake)
   hunter_cacheable(hunter_box_1)
   hunter_download(PACKAGE_NAME hunter_box_1)
 
+Consistency
+===========
+
+Please keep Git tag and ``VERSION`` in consistent state.
+For example if ``URL`` is:
+
+.. code-block:: cmake
+  :emphasize-lines: 3-4
+
+  hunter_add_version(
+      # ...
+      URL
+      "https://github.com/hunterbox/hunter_box_1/archive/v1.3.15-da39a3e-p6.tar.gz"
+      # ...
+  )
+
+Then ``VERSION`` should be:
+
+.. code-block:: cmake
+  :emphasize-lines: 3-4
+
+  hunter_add_version(
+      # ...
+      VERSION
+      1.3.15-da39a3e-p6
+      URL
+      "https://github.com/hunterbox/hunter_box_1/archive/v1.3.15-da39a3e-p6.tar.gz"
+      # ...
+  )
+
 CMake options
 =============
 
 Note that it does not make sense to build and install stuff like examples,
 tests or documentation. Please check that your package has CMake options to
-disable those. If such an option is not disabled by default use 
+disable those. If such an option is not disabled by default use
 ``hunter_cmake_args``:
 
 .. code-block:: cmake
-  :emphasize-lines: 3, 6-8
+  :emphasize-lines: 1, 6, 9-11
 
-  # bottom of cmake/projects/Foo/hunter.cmake
+  include(hunter_cmake_args)
 
+  # ...
+
+  # bottom of cmake/projects/foo/hunter.cmake
   hunter_cmake_args(
-      Foo
+      foo
       CMAKE_ARGS
           FOO_BUILD_EXAMPLES=OFF
           FOO_BUILD_TESTS=OFF
@@ -326,7 +353,7 @@ disable those. If such an option is not disabled by default use
   )
 
   hunter_pick_scheme(DEFAULT url_sha1_cmake)
-  hunter_download(PACKAGE_NAME Foo)
+  hunter_download(PACKAGE_NAME foo)
 
 Options set by ``hunter_cmake_args`` have lower precedence than options set
 by ``hunter_config(... CMAKE_ARGS ...)`` (see
@@ -345,8 +372,8 @@ Default build type(s) can be set by ``hunter_configuration_types``:
 
 .. code-block:: cmake
 
-  hunter_configuration_types(Foo CONFIGURATION_TYPES Release)
-  hunter_download(PACKAGE_NAME Foo)
+  hunter_configuration_types(foo CONFIGURATION_TYPES Release)
+  hunter_download(PACKAGE_NAME foo)
 
 User can overwrite this default by using
 `custom <https://github.com/ruslo/hunter/wiki/example.custom.config.id>`__
@@ -414,14 +441,6 @@ If you want to have two tags add another line with ``single``:
   Since you don't know the pull request number a priori leave it as ``N`` for now.
   You can update it later.
 
-To locally check if the documentation is still building you can run:
-
-.. code-block:: none
-
-  [hunter]> cd docs
-  [hunter/docs]> source ./jenkins.sh
-  (_venv) [hunter/docs]> ./make.sh
-
 Commit
 ======
 
@@ -429,7 +448,7 @@ Now save all changes by doing a commit:
 
 .. code-block:: none
 
-  [hunter]> git branch 
+  [hunter]> git branch
     master
   * pr.hunter_box_1
 
@@ -440,288 +459,13 @@ Now save all changes by doing a commit:
 
   [hunter]> git commit -m "Add 'hunter_box_1' package"
 
-Testing locally
-===============
-
-This step is optional since we will run tests on the CI server. However it's the
-fastest way to check that everything is ready and working correctly.
-
-Script ``jenkins.py`` will package a temporary Hunter archive based on current
-state and build the specified example. This script uses
-`Polly <https://github.com/ruslo/polly>`__ toolchains.
-
-Check you have Python 3 installed, clone Polly, add its ``bin`` folder to
-``PATH`` environment variable, go back to Hunter repository and run test.
-
-On Linux:
-
-.. code-block:: none
-
-  > which python3
-  /usr/bin/python3
-
-  > git clone https://github.com/ruslo/polly
-  > cd polly
-  [polly]> export PATH="`pwd`/bin:$PATH"
-
-  > cd hunter
-  [hunter]> which polly.py
-  /.../bin/polly.py
-
-  [hunter]> polly.py --help
-  Python version: 3.5
-  usage: polly.py [-h]
-  ...
-
-  [hunter]> TOOLCHAIN=gcc PROJECT_DIR=examples/hunter_box_1 ./jenkins.py
-
-On Windows:
-
-.. code-block:: none
-
-  > git clone https://github.com/ruslo/polly
-  > cd polly
-  [polly]> set PATH=%CD%\bin;%PATH%
-
-  > cd hunter
-  [hunter]> where polly.py
-  C:\...\bin\polly.py
-
-  [hunter]> polly.py --help
-  Python version: 3.5
-  usage: polly.py [-h]
-  ...
-
-  [hunter]> set TOOLCHAIN=vs-12-2013
-  [hunter]> set PROJECT_DIR=examples\hunter_box_1
-  [hunter]> .\jenkins.py
-
-.. admonition:: Stackoverflow
-
-  * `How to execute Python scripts in Windows? <https://stackoverflow.com/a/1936078/2288008>`__
-
-.. _ci testing:
-
-CI testing
-==========
-
-Now let's run tests on continuous integration servers with various toolchains
-and platforms. Hunter uses `AppVeyor <https://appveyor.com>`__ to test for
-Windows (Visual Studio, NMake, Ninja, MinGW, MSYS) and
-`Travis <https://travis-ci.org>`__ to test
-for Linux (GCC, Clang, Android, Clang Analyzer, Sanitize Address, Sanitize Leak)
-and for OSX (Clang + Makefile, Xcode, iOS).
-
-Register your Hunter fork:
-
-* `AppVeyor: Getting started <https://www.appveyor.com/docs/>`__
-* `Travis: Getting started <https://docs.travis-ci.com/user/getting-started/>`__
-
-Branch master
-=============
-
-To understand what should be done next you need to understand the structure
-of branches.
-
-* Name: ``master``
-* Repository: https://github.com/ruslo/hunter
-* Testing: Documentation on Linux
-
-In branch ``master`` there is only the ``.travis.yml`` file which will only check
-if the documentation is building:
-
-* https://github.com/ruslo/hunter/blob/ea9de264d6c1b05484bdc16a9967c3cb8cca9048/.travis.yml#L57-L59
-
-When you open a pull request to ``ruslo/hunter`` this test will automatically run.
-
-Branch pkg.template
-===================
-
-* Name: ``pkg.template``
-* Repository: https://github.com/ingenue/hunter
-* Testing: *Nothing*
-
-In branch ``pkg.template`` of the repository ``ingenue/hunter`` there are
-the **template** files ``.travis.yml`` and ``appveyor.yml``:
-
-* https://github.com/ingenue/hunter/blob/pkg.template/.travis.yml
-* https://github.com/ingenue/hunter/blob/pkg.template/appveyor.yml
-
-All changes from ``master`` will go to ``pkg.template``. The only differences
-between ``master`` and ``pkg.template`` are the files ``.travis.yml``/``appveyor.yml``.
-
-Branch pkg.<name>
-=================
-
-Branch for testing package ``<name>``.
-
-* Name: ``pkg.<name>``
-* Repository: https://github.com/ingenue/hunter
-* Testing: Package ``<name>`` on Windows/Linux/OSX hosts
-
-Real testing happens in ``pkg.<name>`` branch of ``ingenue/hunter`` repository.
-E.g. branch ``pkg.gtest``:
-
-* https://github.com/ingenue/hunter/tree/pkg.gtest
-* AppVeyor https://ci.appveyor.com/project/ingenue/hunter/build/1.0.2352
-* Travis https://travis-ci.org/ingenue/hunter/builds/274507515
-
-All changes from ``pkg.template`` will go to ``pkg.<name>`` branch on updates.
-The only differences between ``pkg.template`` and ``pkg.<name>`` are
-the files ``travis.yml``/``appveyor.yml``.
-
-Branch upload.<name>
-====================
-
-Branch for uploads.
-
-* Name: ``upload.<name>``
-* Repository: https://github.com/ingenue/hunter
-* Testing: Upload archives with binaries to cache-server
-
-After successful tests on ``pkg.<name>`` the branch ``upload.<name>`` will do
-uploads. E.g. branch ``upload.gtest``:
-
-* https://github.com/ingenue/hunter/tree/upload.gtest
-* https://ci.appveyor.com/project/ingenue/hunter/build/1.0.2287
-* https://travis-ci.org/ingenue/hunter/builds/270324624
-
-All changes from ``pkg.<name>`` will go to ``upload.<name>`` branch on updates.
-The only difference between ``upload.<name>`` and ``pkg.<name>`` is
-the build command: ``jenkins.py`` vs. ``jenkins.py --upload``.
-
-Branches structure
-==================
-
-Here is an image showing the structure of the branches:
-
-.. image:: /creating-new/images/branches.png
-  :align: center
-  :alt: Branches
-
-Fetch CI configs
-================
-
-Since we are adding a new package we have to create new CI configs for it.
-Fetch the branch ``pkg.template`` and substitute all ``foo`` strings with
-``hunter_box_1``:
-
-.. code-block:: none
-
-  [hunter]> git remote add ci https://github.com/ingenue/hunter
-  [hunter]> git fetch ci
-  [hunter]> git checkout pkg.template
-  [hunter]> git checkout -b pr.pkg.hunter_box_1
-
-  [hunter]> sed -i 's,foo,hunter_box_1,g' .travis.yml 
-  [hunter]> sed -i 's,foo,hunter_box_1,g' appveyor.yml
-
-  [hunter]> git add .travis.yml appveyor.yml
-  [hunter]> git commit -m "Test 'hunter_box_1' package"
-
-Run remote tests
-================
-
-Currently we have two new branches:
-
-* ``pr.hunter_box_1`` contains new package
-* ``pr.pkg.hunter_box_1`` contains configs for testing
-
-.. code-block:: none
-
-  [hunter]> git branch -vv
-    master
-    pkg.template
-    pr.hunter_box_1     9f60453 Add 'hunter_box_1' package
-  * pr.pkg.hunter_box_1 4a7626d Test 'hunter_box_1' package
-
-To run tests we need to merge both changes into ``test.hunter_box_1``
-and push ``test.hunter_box_1`` branch to remote:
-
-.. code-block:: none
-
-  [hunter]> git checkout pr.hunter_box_1
-  [hunter]> git checkout -b test.hunter_box_1
-  [hunter]> git merge pr.pkg.hunter_box_1
-  [hunter]> git push -u origin test.hunter_box_1
-
-Example:
-
-* https://travis-ci.org/hunterbox/hunter/builds/276514711
-
-.. image:: /creating-new/images/pull-request.png
-  :align: center
-  :alt: Pull request
-
-Excluding tests
-===============
-
-If all tests passed you can skip this section.
-
-If some toolchains are working and some toolchains failed it means the project
-has platform-specific problems. Note that you don't have to have all
-toolchains working and there is **no need to fix all issues you see**.
-If at least *something* is working then you can exclude broken
-toolchains and you or somebody else can apply fixes later.
-
-Please follow these guidelines when disabling toolchains:
-
-- **Do not remove** toolchains from ``.travis.yml``/``appveyor.yml`` configs.
-  Comment it out instead to simplify enabling it back.
-- Do not change the order of toolchains since it will affect ``git merge``.
-- Leave the link to broken job:
-
-.. literalinclude:: ci/.travis-NEW.yml
-  :diff: ci/.travis-OLD.yml
-
-If no working toolchain is left for ``.travis.yml`` or ``appveyor.yml`` then
-comment out everything and add ``TOOLCHAIN=dummy`` test.
-
-Go to branch ``pr.pkg.hunter_box_1`` with CI configs and commit this change
-there:
-
-.. code-block:: none
-
-  [hunter]> git checkout pr.pkg.hunter_box_1
-  [hunter]> git add .travis.yml
-  [hunter]> git commit -m 'Exclude broken'
-
-Go to testing branch ``test.hunter_box_1``, merge updated CI configs and run
-new CI tests by pushing commits to remote:
-
-.. code-block:: none
-
-  [hunter]> git checkout test.hunter_box_1
-  [hunter]> git merge pr.pkg.hunter_box_1
-  [hunter]> git push
-
-Pull requests (tests)
-=====================
-
-First push ``pr.pkg.hunter_box_1`` with CI configs:
-
-.. code-block:: none
-
-  [hunter]> git checkout pr.pkg.hunter_box_1
-  [hunter]> git push -u origin pr.pkg.hunter_box_1
-
-Open pull request to ``ingenue/hunter`` repository, to ``pkg.template``
-branch:
-
-.. image:: /creating-new/images/pr-with-tests.png
-  :align: center
-  :alt: Pull request with tests 
-
-I will create ``pkg.hunter_box_1`` and change branch before merging:
-
-.. image:: /creating-new/images/pr-change-branch.png
-  :align: center
-  :alt: Change branch
+.. include:: ../test.rst
+  :end-before: toctree
 
 Pull requests
 =============
 
-After CI configs merged you can open pull request with package itself:
+After CI testing is done you can open a pull request with package:
 
 .. code-block:: none
 
@@ -753,47 +497,30 @@ tested automatically:
 
 .. image:: /creating-new/images/package-testing.png
   :align: center
-  :alt: Package testing 
+  :alt: Package testing
 
-Branch ``pkg.hunter_box_1.pr-N`` will be created from ``pkg.hunter_box_1``
-to test package:
+Release
+=======
 
-.. image:: /creating-new/images/pull-request-testing.png
-  :align: center
-  :alt: Change branch
-
-Upload
-======
-
-After all tests pass the pull request will be merged and upload run. When upload
-finished new release will be created:
-
-.. image:: /creating-new/images/upload.png
-  :align: center
-  :alt: Upload
+After all tests pass the pull request will be merged.
+New release will be created:
 
 You can use new ``URL``/``SHA1``:
 
 .. image:: /creating-new/images/release.png
   :align: center
-  :alt: Upload
+  :alt: Release
 
 Clean
 =====
 
-At this moment all branches can be removed:
+At this moment working branch can be removed:
 
 .. code-block:: none
 
   [hunter]> git checkout master
-
   [hunter]> git push origin :pr.hunter_box_1
-  [hunter]> git push origin :pr.pkg.hunter_box_1
-  [hunter]> git push origin :test.hunter_box_1
-
   [hunter]> git branch -D pr.hunter_box_1
-  [hunter]> git branch -D pr.pkg.hunter_box_1
-  [hunter]> git branch -D test.hunter_box_1
 
 Badge
 =====
@@ -806,7 +533,7 @@ via Hunter:
   |hunter|
 
   .. |hunter| image:: https://img.shields.io/badge/hunter-hunter_box_1-blue.svg
-    :target: https://docs.hunter.sh/en/latest/packages/pkg/hunter_box_1.html
+    :target: https://hunter.readthedocs.io/en/latest/packages/pkg/hunter_box_1.html
     :alt: Hunter
 
 Example:

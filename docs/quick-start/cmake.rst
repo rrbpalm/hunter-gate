@@ -4,16 +4,9 @@
 Notes about version of CMake
 ----------------------------
 
-* `3.2.0`_ **Minimum required**
+* `3.5.0`_ **Minimum required**
 
-  * New ``continue`` command
-  * New synchronization command ``file(LOCK ...)``
-
-* `3.4.1`_
-
-  * **Buggy**, see `issue #405 <https://github.com/ruslo/hunter/issues/405>`__
-
-* `3.5.0`_ **Minimum for iOS projects**
+  * Since: `PR #689 <https://github.com/cpp-pm/hunter/pull/689>`__
 
   * New variable `CMAKE_IOS_INSTALL_COMBINED <https://cmake.org/cmake/help/v3.5/variable/CMAKE_IOS_INSTALL_COMBINED.html>`__
   * `iOS toolchains <http://polly.readthedocs.io/en/latest/toolchains/ios.html>`__
@@ -32,9 +25,16 @@ Notes about version of CMake
   * CMake now supports Cross Compiling for Android with simple toolchain files
   * `Polly Android toolchains <http://polly.readthedocs.io/en/latest/toolchains/android.html#android-ndk-x-api-y>`__
 
+* `3.9.2`_ **Minimum for Android NDK r16+**
+
 .. tip::
 
   * `CMake milestones <https://gitlab.kitware.com/cmake/cmake/milestones?state=all>`__ (`old version <https://cmake.org/Bug/changelog_page.php>`__)
+
+.. note::
+
+  If you're building CMake from sources please make sure that
+  :doc:`HTTPS support is enabled in CURL </faq/how-to-fix-download-error>`.
 
 .. note::
 
@@ -47,8 +47,7 @@ Notes about version of CMake
   Latest Hunter release with support of old Android toolchains
   (before CMake 3.7.1) is v0.16.36
 
-.. _3.2.0: https://www.cmake.org/cmake/help/v3.2/release/3.2.html#commands
-.. _3.4.1: https://www.cmake.org/cmake/help/v3.4/release/3.4.html
 .. _3.5.0: https://www.cmake.org/cmake/help/v3.5/release/3.5.html#platforms
 .. _3.7.0: https://cmake.org/cmake/help/latest/release/3.7.html#commands
 .. _3.7.1: https://cmake.org/cmake/help/latest/release/3.7.html#platforms
+.. _3.9.2: https://gitlab.kitware.com/cmake/cmake/issues/17253

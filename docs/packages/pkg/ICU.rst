@@ -11,7 +11,7 @@ ICU
 
 - http://site.icu-project.org/
 - `Hunterized <https://github.com/hunter-packages/icu>`__
-- `Example <https://github.com/ruslo/hunter/blob/master/examples/ICU/CMakeLists.txt>`__
+- `Example <https://github.com/cpp-pm/hunter/blob/master/examples/ICU/CMakeLists.txt>`__
 - `Stand-alone example with advanced testing <https://github.com/forexample/icu-sample>`__
 
 .. literalinclude:: /../examples/ICU/CMakeLists.txt
@@ -25,7 +25,7 @@ Available targets:
 * ``ICU::i18n``
 * ``ICU::io`` (only if ``ICU_BUILD_IO=YES``)
 * ``ICU::le``
-* ``ICU::lx``
+* ``ICU::lx`` (available in :ref:`icu-lx <pkg.icu-lx>` package)
 * ``ICU::tu`` (only if ``ICU_BUILD_TOOLS=YES``)
 * ``ICU::uc``
 * ``ICU::pkgdata`` (only if ``ICU_BUILD_TOOLS=YES``)

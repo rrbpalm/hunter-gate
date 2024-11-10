@@ -12,22 +12,11 @@ hunter_add_version(
     PACKAGE_NAME
     ZLIB
     VERSION
-    "1.2.8-p3"
+    "1.2.8-hunter"
     URL
-    "https://github.com/hunter-packages/zlib/archive/v1.2.8-p3.tar.gz"
+    "https://github.com/hunter-packages/zlib/archive/v1.2.8-hunter.tar.gz"
     SHA1
-    573dc28474be47d0c7abc1475a14aa12f0dfcadc
-)
-
-hunter_add_version(
-    PACKAGE_NAME
-    ZLIB
-    VERSION
-    "1.2.8-p2"
-    URL
-    "https://github.com/hunter-packages/zlib/archive/v1.2.8-p2.tar.gz"
-    SHA1
-    bef3ee6d68a271dfcd2f659c80d721d4a6b39315
+    75a05fcc928ed52e1eeb93f07a1c78a7890860c0
 )
 
 hunter_add_version(
@@ -45,13 +34,114 @@ hunter_add_version(
     PACKAGE_NAME
     ZLIB
     VERSION
-    "1.2.8-hunter"
+    "1.2.8-p2"
     URL
-    "https://github.com/hunter-packages/zlib/archive/v1.2.8-hunter.tar.gz"
+    "https://github.com/hunter-packages/zlib/archive/v1.2.8-p2.tar.gz"
     SHA1
-    75a05fcc928ed52e1eeb93f07a1c78a7890860c0
+    bef3ee6d68a271dfcd2f659c80d721d4a6b39315
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ZLIB
+    VERSION
+    "1.2.8-p3"
+    URL
+    "https://github.com/hunter-packages/zlib/archive/v1.2.8-p3.tar.gz"
+    SHA1
+    573dc28474be47d0c7abc1475a14aa12f0dfcadc
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ZLIB
+    VERSION
+    "1.2.11-p0"
+    URL
+    "https://github.com/hunter-packages/zlib/archive/v1.2.11-p0.tar.gz"
+    SHA1
+    9ced8b310aa341af7f3584bac0b2d2a669d2178b
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ZLIB
+    VERSION
+    "1.2.11-p1"
+    URL
+    "https://github.com/hunter-packages/zlib/archive/v1.2.11-p1.tar.gz"
+    SHA1
+    fbb8be77db5cb3f4d1b269f273a357d22ccc4b32
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ZLIB
+    VERSION
+    "1.2.12-p0"
+    URL
+    "https://github.com/cpp-pm/zlib/archive/v1.2.12-p0.tar.gz"
+    SHA1
+    3c5ce030d621a9f33b112ac51cb5068f11d023fb
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ZLIB
+    VERSION
+    "1.2.13-p0"
+    URL
+    "https://github.com/cpp-pm/zlib/archive/v1.2.13-p0.tar.gz"
+    SHA1
+    219ae8c9e5040fb695f84e2cc364fe055d5a7408
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ZLIB
+    VERSION
+    "1.3.0-p0"
+    URL
+    "https://github.com/cpp-pm/zlib/archive/refs/tags/v1.3.0-p0.tar.gz"
+    SHA1
+    311ca59e20cbbfe9d9e05196c12c6ae109093987
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ZLIB
+    VERSION
+    "0.0.0-chromium-f87c2b10efb4-p0"
+    URL
+    "https://github.com/hunter-packages/chromium_zlib/archive/v0.0.0-f87c2b10efb4-p0.tar.gz"
+    SHA1
+    2fc1f19ef5ba48c415a614e56e1c12507f4676ab
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ZLIB
+    VERSION
+    "0.0.0-chromium-f87c2b10efb4-p2"
+    URL
+    "https://github.com/cpp-pm/chromium_zlib/archive/v0.0.0-f87c2b10efb4-p2.tar.gz"
+    SHA1
+    20019f1dbfb154956067aa1df0e73e5185d794fa
 )
 
 hunter_pick_scheme(DEFAULT url_sha1_cmake)
 hunter_cacheable(ZLIB)
-hunter_download(PACKAGE_NAME ZLIB)
+string(FIND "${HUNTER_ZLIB_VERSION}" "chromium" HUNTER_ZLIB_IS_CHROMIUM)
+if(NOT HUNTER_ZLIB_IS_CHROMIUM EQUAL -1)
+  # Is a chromium variant
+  hunter_download(PACKAGE_NAME ZLIB
+    PACKAGE_INTERNAL_DEPS_ID "1"
+  )
+else()
+  # Is a standard variant
+  hunter_download(PACKAGE_NAME ZLIB
+    PACKAGE_INTERNAL_DEPS_ID "1"
+    PACKAGE_UNRELOCATABLE_TEXT_FILES
+    "share/pkgconfig/zlib.pc"
+  )
+endif()

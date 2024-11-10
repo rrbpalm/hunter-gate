@@ -93,6 +93,12 @@ function(hunter_create_cache_file cache_path)
         "${temp_path}"
         "set(CMAKE_${lang}_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES \"${CMAKE_${lang}_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES}\" CACHE INTERNAL \"\")\n"
     )
+    hunter_status_debug("ABI forwarding: CMAKE_${lang}_IMPLICIT_INCLUDE_DIRECTORIES = ${CMAKE_${lang}_IMPLICIT_INCLUDE_DIRECTORIES}")
+    file(
+        APPEND
+        "${temp_path}"
+        "set(CMAKE_${lang}_IMPLICIT_INCLUDE_DIRECTORIES \"${CMAKE_${lang}_IMPLICIT_INCLUDE_DIRECTORIES}\" CACHE INTERNAL \"\")\n"
+    )
     if(DEFINED CMAKE_${lang}_LIBRARY_ARCHITECTURE)
       hunter_status_debug("ABI forwarding: CMAKE_${lang}_LIBRARY_ARCHITECTURE = ${CMAKE_${lang}_LIBRARY_ARCHITECTURE}")
       file(
@@ -187,6 +193,22 @@ function(hunter_create_cache_file cache_path)
       APPEND
       "${temp_path}"
       "set(CMAKE_POLICY_DEFAULT_CMP0069 NEW CACHE INTERNAL \"\")\n"
+  )
+
+  # CMP0114 should be set to NEW to squash CMake warnings at Xcode build time,
+  # without modifying source code
+  file(
+      APPEND
+      "${temp_path}"
+      "set(CMAKE_POLICY_DEFAULT_CMP0114 NEW CACHE INTERNAL \"\")\n"
+  )
+
+  # CMP0135 should be set to NEW to squash CMake warnings at build time,
+  # without modifying source code
+  file(
+      APPEND
+      "${temp_path}"
+      "set(CMAKE_POLICY_DEFAULT_CMP0135 NEW CACHE INTERNAL \"\")\n"
   )
 
   # Disable package registry {

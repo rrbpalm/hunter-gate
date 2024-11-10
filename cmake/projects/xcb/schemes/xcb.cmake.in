@@ -1,7 +1,7 @@
 # Copyright (c) 2016 Ruslan Baratov
 # All rights reserved.
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(Hunter)
 
 include("@HUNTER_SELF@/cmake/Hunter")
@@ -69,9 +69,12 @@ hunter_autotools_project(
 
 set(PKG_CONFIG_MODULE xcb)
 
+set(PKG_GENERATE_SHARED "${BUILD_SHARED_LIBS}")
+
 # Use:
 # * PKG_CONFIG_MODULE
 # * DEPENDS_ON_PACKAGES
+# * PKG_GENERATE_SHARED
 configure_file(
     "@HUNTER_GLOBAL_SCRIPT_DIR@/pkgconfig-export-targets.cmake.in"
     "@HUNTER_PACKAGE_INSTALL_PREFIX@/lib/cmake/${PKG_CONFIG_MODULE}/${PKG_CONFIG_MODULE}Config.cmake"

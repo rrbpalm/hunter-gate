@@ -1,7 +1,7 @@
 # Copyright (c) 2017 Alexandre Pretyman
 # All rights reserved.
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(Hunter)
 
 include(ExternalProject) # ExternalProject_Add
@@ -278,9 +278,9 @@ else()
     # Extra space at the end of the arch_flags is needed below when appending
     # to configure_opts, please do not remove!
     if(is_simulator)
-      set(arch_flags "-arch ${ios_architecture} -isysroot ${IPHONESIMULATOR_SDK_ROOT} -miphoneos-version-min=${IOS_SDK_VERSION} ")
+      set(arch_flags "-arch ${ios_architecture} -isysroot ${IPHONESIMULATOR_SDK_ROOT} ")
     else()
-      set(arch_flags "-arch ${ios_architecture} -isysroot ${IPHONEOS_SDK_ROOT} -miphoneos-version-min=${IOS_SDK_VERSION} ")
+      set(arch_flags "-arch ${ios_architecture} -isysroot ${IPHONEOS_SDK_ROOT} ")
     endif()
 
     # architecture specific source dir
@@ -340,6 +340,8 @@ else()
       @ONLY
   )
 endif()
+
+set(PKG_GENERATE_SHARED "${BUILD_SHARED_LIBS}")
 
 foreach(PKG_CONFIG_MODULE ${PKGCONFIG_EXPORT_TARGETS})
   configure_file(

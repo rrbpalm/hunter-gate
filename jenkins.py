@@ -3,7 +3,7 @@
 # Copyright (c) 2014, Ruslan Baratov
 # All rights reserved.
 
-# https://github.com/ruslo/polly/wiki/Jenkins
+# https://github.com/cpp-pm/polly/wiki/Jenkins
 
 import argparse
 import hashlib
@@ -111,6 +111,7 @@ def run():
   os.makedirs(testing_dir, exist_ok=True)
 
   if os.name == 'nt':
+    # path too long workaround
     hunter_junctions = os.getenv('HUNTER_JUNCTIONS')
     if hunter_junctions:
       temp_dir = tempfile.mkdtemp(dir=hunter_junctions)
@@ -145,6 +146,7 @@ def run():
 
   polly_root = os.getenv('POLLY_ROOT')
   if polly_root:
+    polly_root = os.path.abspath(polly_root)
     print('Using POLLY_ROOT: {}'.format(polly_root))
     build_script = os.path.join(polly_root, 'bin', 'build.py')
   else:
@@ -204,6 +206,9 @@ def run():
 
   subprocess.check_call(args)
 
+  cache_retry_count = 0
+  max_cache_retry_count = 5
+
   if parsed_args.upload:
     seconds = 60
     print(
@@ -245,7 +250,13 @@ def run():
       print('  `{}`'.format(i))
     print(']')
 
-    subprocess.check_call(args)
+    while subprocess.call(args) and cache_retry_count < max_cache_retry_count:
+      print('Cache-only sanity check attempt {} failed...'.format(cache_retry_count))
+      time.sleep(seconds)
+      cache_retry_count += 1
+
+    if cache_retry_count >= max_cache_retry_count:
+      exit(1)
 
 if __name__ == "__main__":
   run()

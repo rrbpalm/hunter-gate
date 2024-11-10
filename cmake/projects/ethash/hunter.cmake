@@ -41,6 +41,72 @@ hunter_add_version(
     42597f359c25018e058289652caed8475b6fc1e5
 )
 
+hunter_add_version(
+    PACKAGE_NAME
+    ethash
+    VERSION
+    0.4.3
+    URL
+    https://github.com/chfast/ethash/archive/v0.4.3.tar.gz
+    SHA1
+    ec5a7a54c508cc5f2c11d175b68f3ac3db2200ed
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ethash
+    VERSION
+    0.4.4
+    URL
+    https://github.com/chfast/ethash/archive/v0.4.4.tar.gz
+    SHA1
+    d09e4560cf7e5ea9ce9e3c1f35a98edeb46e6bb6
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ethash
+    VERSION
+    0.5.0
+    URL
+    https://github.com/chfast/ethash/archive/v0.5.0.tar.gz
+    SHA1
+    674af68ac051e46895ad74f68c9378311fe89b2b
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ethash
+    VERSION
+    0.8.0
+    URL
+    https://github.com/chfast/ethash/archive/v0.8.0.tar.gz
+    SHA1
+    41fd440f70b6a8dfc3fd29b20f471dcbd1345ad0
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ethash
+    VERSION
+    0.9.0
+    URL
+    https://github.com/chfast/ethash/archive/v0.9.0.tar.gz
+    SHA1
+    175767db8adbf846dc08f7751d5582f55c63877c
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ethash
+    VERSION
+    1.0.0
+    URL
+    https://github.com/chfast/ethash/archive/v1.0.0.tar.gz
+    SHA1
+    75e64b885be0ad90f0fad8e8e718f02d4b0edac8
+)
+
 hunter_cmake_args(
     ethash
     CMAKE_ARGS

@@ -11,6 +11,72 @@ hunter_add_version(
     PACKAGE_NAME
     OpenCV-Extra
     VERSION
+    "4.5.5"
+    URL
+    "https://github.com/opencv/opencv_contrib/archive/4.5.5.tar.gz"
+    SHA1
+    cabe4e1644576f112345bf9ebc7f876086a60930
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    OpenCV-Extra
+    VERSION
+    "4.5.3"
+    URL
+    "https://github.com/opencv/opencv_contrib/archive/4.5.3.tar.gz"
+    SHA1
+    879a5e4390b220d1112b68c3dcb0fd7dbdd67cbd
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    OpenCV-Extra
+    VERSION
+    "4.1.1"
+    URL
+    "https://github.com/opencv/opencv_contrib/archive/4.1.1.tar.gz"
+    SHA1
+    bb7e39790b04a0a23e0ea1d4882f45c4add3adb7
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    OpenCV-Extra
+    VERSION
+    "4.0.0"
+    URL
+    "https://github.com/opencv/opencv_contrib/archive/4.0.0.tar.gz"
+    SHA1
+    4c10c8cb288a320b47ec7e87a0fdcf5a8df0f49d
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    OpenCV-Extra
+    VERSION
+    "3.4.6"
+    URL
+    "https://github.com/opencv/opencv_contrib/archive/3.4.6.tar.gz"
+    SHA1
+    f87e11ac00550529853f19871429d062ef446c35
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    OpenCV-Extra
+    VERSION
+    "3.4.3"
+    URL
+    "https://github.com/opencv/opencv_contrib/archive/3.4.3.tar.gz"
+    SHA1
+    2c70868a9c2accae23e8f382885d3e4f97030978
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    OpenCV-Extra
+    VERSION
     "3.4.2"
     URL
     "https://github.com/opencv/opencv_contrib/archive/3.4.2.tar.gz"
@@ -83,6 +149,18 @@ hunter_add_version(
     SHA1
     6301ce49ec0c851837b62aed8592be9cd9309f79
 )
+
+hunter_add_version(
+    PACKAGE_NAME
+    OpenCV-Extra
+    VERSION
+    "4.8.1"
+    URL
+    "https://github.com/opencv/opencv_contrib/archive/4.8.1.tar.gz"
+    SHA1
+    111cca75f8f3dd7d840755d6fc3c488c2fe980ed
+)
+
 
 hunter_pick_scheme(DEFAULT url_sha1_unpack)
 hunter_download(PACKAGE_NAME OpenCV-Extra)

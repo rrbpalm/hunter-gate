@@ -9,9 +9,9 @@ Contributing
 There are many ways to contribute to Hunter:
 
 - Documentation
-- There is a newer version of an existing package? `Notify us <https://github.com/ruslo/hunter/issues>`__ or send a pull request with an updated version.
+- There is a newer version of an existing package? `Notify us <https://github.com/cpp-pm/hunter/issues>`__ or send a pull request with an updated version.
 - Missing a package in Hunter? :ref:`Add a new package <creating new>`
-- `Resolve Issues <https://github.com/ruslo/hunter/issues>`__
+- `Resolve Issues <https://github.com/cpp-pm/hunter/issues>`__
 
   - Can you provide an answer to an open question?
   - Can you reproduce the error?
@@ -24,16 +24,16 @@ When contributing please follow the style guides:
 
 .. note::
 
-     The minimum version of CMake for using Hunter is ``3.0``.
+     The minimum version of CMake for using Hunter is ``3.2``.
      Please check that you're not using commands from newer versions
-     (`see documentation for 3.0 <http://www.cmake.org/cmake/help/v3.0/>`__).
+     (`see documentation for 3.2 <http://www.cmake.org/cmake/help/v3.2/>`__).
 
 .. note::
 
     Before adding or updating a package in Hunter, the package is tested.
     Tests are done to check if the source can be downloaded, built and linked.
     Head over to our
-    `repository for per package CI testing contribution <https://github.com/ingenue/hunter/branches/all?utf8=%E2%9C%93&query=pkg.>`__
+    `repository for per package CI testing contribution <https://github.com/cpp-pm/hunter-testing/branches/all?utf8=%E2%9C%93&query=pkg.>`__
     to see more.
 
 .. note::
@@ -59,7 +59,7 @@ and working correctly. Before reporting bugs please check:
 
     # CMakeLists.txt
 
-    cmake_minimum_required(VERSION 3.0)
+    cmake_minimum_required(VERSION 3.5)
     project(foo)
 
     add_executable(foo foo.cpp)
@@ -83,11 +83,11 @@ If everything seems OK:
 * Make sure you're not using :ref:`HUNTER_NO_TOOLCHAIN_ID_RECALCULATION <hunter no toolchain id recalculation>`
 * Take a look at **first** error reported by Hunter. If Hunter reports chain
   of errors the last error you see is **not relevant**!
-* Update to `latest Hunter URL/SHA1 <https://github.com/ruslo/hunter/releases>`__
+* Update to `latest Hunter URL/SHA1 <https://github.com/cpp-pm/hunter/releases>`__
   and check that issue you have hit is not already fixed/reported
 * Check this document if the first error you see is ``external.build.failed``:
 
-  * https://github.com/ruslo/hunter/wiki/error.external.build.failed
+  * https://hunter.readthedocs.io/en/latest/reference/errors/error.external.build.failed.html
 * Remove irrelevant code from your example and report one problem at a time.
   Try to construct `SSCCE <http://www.sscce.org/>`__. If you need more files
   than just ``CMakeLists.txt`` it's better to create separate GitHub repository
@@ -101,7 +101,7 @@ If everything seems OK:
   there is a bug somewhere. If you want to figure out what is the origin
   of the problem please do keep ``~/.hunter`` directory.
 
-* Open an `issue <https://github.com/ruslo/hunter/issues/new>`__ and provide
+* Open an `issue <https://github.com/cpp-pm/hunter/issues/new>`__ and provide
   next info:
 
   * CMake version you're using ``cmake --version``. CMake build from source?

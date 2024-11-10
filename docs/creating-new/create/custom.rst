@@ -5,7 +5,7 @@ Non-CMake: custom scheme
 ------------------------
 
 Non-CMake projects can be added too. But sometimes it's not a trivial task
-(for example there are a 3 custom schemes for `OpenSSL <https://github.com/ruslo/hunter/blob/master/cmake/projects/OpenSSL/hunter.cmake>`_. In general it's better to
+(for example there are a 3 custom schemes for `OpenSSL <https://github.com/cpp-pm/hunter/blob/master/cmake/projects/OpenSSL/hunter.cmake>`_. In general it's better to
 apply a patch to an existing CMake build and use :ref:`cmake-simple` add
 instruction. Anyway here is a guide how to add a project with custom build:
 
@@ -29,7 +29,7 @@ Test it using ``ExternalProject_Add``
 .. code-block:: bash
 
     > cat CMakeLists.txt
-    cmake_minimum_required(VERSION 3.0)
+    cmake_minimum_required(VERSION 3.5)
 
     include(ExternalProject) # ExternalProject_Add
 
@@ -65,7 +65,7 @@ First, custom build scheme need to be added to ``cmake/schemes`` directory:
     > cd ${HUNTER_ROOT}
     > cat cmake/schemes/url_sha1_ios_sim.cmake.in
     # This is configuration file, variable @SOME_VARIABLE_NAME@ will be substituted during configure_file command
-    cmake_minimum_required(VERSION 3.0)
+    cmake_minimum_required(VERSION 3.5)
 
     # If such variables like `CMAKE_CXX_FLAGS` or `CMAKE_CXX_COMPILER` not used by scheme
     # setting `LANGUAGES` to `NONE` will speed-up build a little bit. If you have any problems/glitches
@@ -153,7 +153,7 @@ Now package ready to be used:
 .. code-block:: bash
 
     > cat CMakeLists.txt
-    cmake_minimum_required(VERSION 2.8)
+    cmake_minimum_required(VERSION 3.5)
 
     include("cmake/HunterGate.cmake")
 

@@ -16,6 +16,7 @@ include(hunter_get_configuration_types)
 include(hunter_get_keep_package_sources)
 include(hunter_get_package_sha1)
 include(hunter_get_package_url)
+include(hunter_get_source_subdir)
 include(hunter_internal_error)
 include(hunter_jobs_number)
 include(hunter_load_from_cache)
@@ -102,6 +103,11 @@ function(hunter_download)
       PACKAGE "${package}"
       UNRELOCATABLE "${HUNTER_PACKAGE_UNRELOCATABLE_TEXT_FILES}"
       OUT HUNTER_PACKAGE_CACHEABLE
+  )
+
+  hunter_get_source_subdir(
+      PACKAGE "${package}"
+      OUT HUNTER_PACKAGE_SOURCE_SUBDIR
   )
 
   set(HUNTER_PACKAGE_PROTECTED_SOURCES "${HUNTER_${package}_PROTECTED_SOURCES}")
@@ -274,11 +280,14 @@ function(hunter_download)
     return()
   endif()
 
-  hunter_lock_directory(
-      "${HUNTER_PACKAGE_DOWNLOAD_DIR}" HUNTER_ALREADY_LOCKED_DIRECTORIES
-  )
+  # Root should be locked first:
+  # - https://github.com/ruslo/hunter/issues/1806
+  # - https://github.com/forexample/deadlock-test
   hunter_lock_directory(
       "${HUNTER_CONFIG_ID_PATH}" HUNTER_ALREADY_LOCKED_DIRECTORIES
+  )
+  hunter_lock_directory(
+      "${HUNTER_PACKAGE_DOWNLOAD_DIR}" HUNTER_ALREADY_LOCKED_DIRECTORIES
   )
   if(hunter_lock_sources)
     hunter_lock_directory(
@@ -310,6 +319,11 @@ function(hunter_download)
 
   file(REMOVE "${HUNTER_ARGS_FILE}")
   hunter_create_args_file("${package_cmake_args}" "${HUNTER_ARGS_FILE}")
+
+  # Pass the raw list of arguments to build scheme:
+  # * https://github.com/cpp-pm/hunter/blob/v0.23.18/cmake/projects/Boost/schemes/url_sha1_boost.cmake.in#L95-L100
+  # * https://github.com/ruslo/hunter/issues/1525
+  set(HUNTER_${HUNTER_PACKAGE_NAME}_CMAKE_ARGS "${package_cmake_args}")
 
   # Check if package can be loaded from cache
   hunter_load_from_cache()
@@ -528,7 +542,7 @@ function(hunter_download)
   if(NOT allow_builds AND HUNTER_PACKAGE_SCHEME_INSTALL)
     hunter_fatal_error(
         "Building package from source is disabled (dir: ${HUNTER_PACKAGE_HOME_DIR})"
-        WIKI "error.build.disabled"
+        ERROR_PAGE "error.build.disabled"
     )
   endif()
 
@@ -552,6 +566,7 @@ function(hunter_download)
   )
   string(COMPARE NOTEQUAL "${CMAKE_GENERATOR_TOOLSET}" "" has_toolset)
   if(has_toolset)
+    hunter_status_debug("Add toolset: '${CMAKE_GENERATOR_TOOLSET}'")
     list(APPEND cmd "-T" "${CMAKE_GENERATOR_TOOLSET}")
   endif()
 
@@ -581,7 +596,7 @@ function(hunter_download)
   else()
     hunter_fatal_error(
         "Configure step failed (dir: ${HUNTER_PACKAGE_HOME_DIR})"
-        WIKI "error.external.build.failed"
+        ERROR_PAGE "error.external.build.failed"
     )
   endif()
 
@@ -607,7 +622,7 @@ function(hunter_download)
   else()
     hunter_fatal_error(
         "Build step failed (dir: ${HUNTER_PACKAGE_HOME_DIR}"
-        WIKI "error.external.build.failed"
+        ERROR_PAGE "error.external.build.failed"
     )
   endif()
 

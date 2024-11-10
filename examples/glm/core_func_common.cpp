@@ -30,6 +30,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #define GLM_FORCE_EXPLICIT_CTOR
+#include <glm/glm.hpp>
 #include <glm/common.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
@@ -49,11 +50,13 @@ namespace floor_
 		{
 			float A(1.1f);
 			float B = glm::floor(A);
+			Error += glm::epsilonEqual(B, 1.f, 0.0001f) ? 0 : 1;
 		}
 
 		{
-			double A(1.1f);
+			double A = 1.1;
 			double B = glm::floor(A);
+			Error += glm::epsilonEqual(B, 1.0, 0.0001) ? 0 : 1;
 		}
 
 		{
@@ -314,8 +317,8 @@ namespace min_
 	int test()
 	{
 		int Error = 0;
-
-		glm::vec1 A0 = glm::min(glm::vec1(1), glm::vec1(1));
+// is not used
+//		glm::vec1 A0 = glm::min(glm::vec1(1), glm::vec1(1));
 
 		glm::vec2 B0 = glm::min(glm::vec2(1), glm::vec2(1));
 		glm::vec2 B1 = glm::min(glm::vec2(1), 1.0f);
@@ -341,8 +344,8 @@ namespace max_
 	int test()
 	{
 		int Error = 0;
-
-		glm::vec1 A0 = glm::max(glm::vec1(1), glm::vec1(1));
+// is not used
+//		glm::vec1 A0 = glm::max(glm::vec1(1), glm::vec1(1));
 
 		glm::vec2 B0 = glm::max(glm::vec2(1), glm::vec2(1));
 		glm::vec2 B1 = glm::max(glm::vec2(1), 1.0f);
