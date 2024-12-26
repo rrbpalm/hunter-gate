@@ -10,6 +10,18 @@ include(hunter_cmake_args)
 include(hunter_download)
 include(hunter_pick_scheme)
 
+# rrb series
+hunter_add_version(
+    PACKAGE_NAME
+    OpenSSL
+    VERSION
+    "rrb-1.1.1k"
+    URL
+    "https://github.com/rrbpalm/openssl/archive/rrb-1.1.1k.zip"
+    SHA1
+    5482091842448c907e24338a70bcb4fd2e141735
+)
+
 # 0.9 series
 hunter_add_version(
     PACKAGE_NAME
