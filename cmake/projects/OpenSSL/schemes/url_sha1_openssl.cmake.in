@@ -47,7 +47,8 @@ elseif(MINGW)
     set(configure_command "./Configure" mingw)
   endif()
 elseif(EMSCRIPTEN)
-  set(configure_command AR=${CMAKE_AR} RANLIB=${CMAKE_RANLIB} "./config")
+  get_filename_component(EMSCRIPTEN_BIN_PATH "${CMAKE_C_COMPILER}" DIRECTORY)
+  set(configure_command "${EMSCRIPTEN_BIN_PATH}/emcmake" "./config")
 else()
   set(configure_command "./config")
 endif()
@@ -116,10 +117,13 @@ endif()
 string(REGEX REPLACE "^ " "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 
 # Pass C compiler through
-set(configure_command
+if (EMSCRIPTEN)
+else()
+  set(configure_command
     MACHINE=${CMAKE_SYSTEM_PROCESSOR}
     CC=${CMAKE_C_COMPILER}
     ${configure_command})
+endif()
 
 # Pass C flags through
 set(configure_opts ${configure_opts} ${CMAKE_C_FLAGS})
