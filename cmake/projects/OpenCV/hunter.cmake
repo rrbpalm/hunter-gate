@@ -175,7 +175,7 @@ hunter_add_version(
     URL
     "https://github.com/rrbpalm/opencv/archive/rrb-3.4.0.zip"
     SHA1
-    e12e8f0256212756448d47b6ddbc225725f7083f
+    fad55beb264735e179f324d741eed6e9066fc92b
 )
 
 hunter_add_version(
