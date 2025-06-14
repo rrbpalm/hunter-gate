@@ -1,0 +1,1043 @@
+[
+    {
+        "id": 44030587649,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zAQ",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587649",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587649",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:13Z",
+        "completed_at": "2025-06-13T08:01:14Z",
+        "name": "ZLIB analyze-cxx17 ubuntu-20.04",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587649",
+        "labels": [
+            "ubuntu-20.04"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587663,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zDw",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587663",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587663",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:13Z",
+        "completed_at": "2025-06-13T08:01:14Z",
+        "name": "ZLIB android-ndk-r17-api-24-arm64-v8a-clang-libcxx14 ubuntu-20.04",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587663",
+        "labels": [
+            "ubuntu-20.04"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587628,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1y7A",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587628",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587628",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:13Z",
+        "completed_at": "2025-06-13T08:01:13Z",
+        "name": "ZLIB clang-cxx17 ubuntu-20.04",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587628",
+        "labels": [
+            "ubuntu-20.04"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587630,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1y7g",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587630",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587630",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:13Z",
+        "completed_at": "2025-06-13T08:01:13Z",
+        "name": "ZLIB gcc-7-cxx17 ubuntu-20.04",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587630",
+        "labels": [
+            "ubuntu-20.04"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587661,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zDQ",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587661",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587661",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:13Z",
+        "completed_at": "2025-06-13T08:01:14Z",
+        "name": "ZLIB gcc-8-cxx17-fpic ubuntu-20.04",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587661",
+        "labels": [
+            "ubuntu-20.04"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587646,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1y_g",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587646",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587646",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:13Z",
+        "completed_at": "2025-06-13T08:01:13Z",
+        "name": "ZLIB gcc-9-cxx17-fpic ubuntu-20.04",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587646",
+        "labels": [
+            "ubuntu-20.04"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587694,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zLg",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587694",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587694",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-14T08:01:13Z",
+        "completed_at": "2025-06-14T08:01:13Z",
+        "name": "ZLIB ios-nocodesign-15-5-arm64-cxx17 macos-12",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587694",
+        "labels": [
+            "macos-12"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587685,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zJQ",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587685",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587685",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:25Z",
+        "completed_at": "2025-06-13T08:03:24Z",
+        "name": "ZLIB mingw-cxx17 windows-2019",
+        "steps": [
+            {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-06-13T08:01:27Z",
+                "completed_at": "2025-06-13T08:01:35Z"
+            },
+            {
+                "name": "Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-06-13T08:01:36Z",
+                "completed_at": "2025-06-13T08:02:02Z"
+            },
+            {
+                "name": "Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-06-13T08:02:02Z",
+                "completed_at": "2025-06-13T08:02:48Z"
+            },
+            {
+                "name": "Set up Python environment variable (Unix)",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 4,
+                "started_at": "2025-06-13T08:02:48Z",
+                "completed_at": "2025-06-13T08:02:48Z"
+            },
+            {
+                "name": "Set up Python environment variable (Windows)",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-06-13T08:02:48Z",
+                "completed_at": "2025-06-13T08:02:56Z"
+            },
+            {
+                "name": "Extract branch name",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2025-06-13T08:02:56Z",
+                "completed_at": "2025-06-13T08:02:56Z"
+            },
+            {
+                "name": "Build hunter_tests Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2025-06-13T08:02:56Z",
+                "completed_at": "2025-06-13T08:02:56Z"
+            },
+            {
+                "name": "Build on Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2025-06-13T08:02:56Z",
+                "completed_at": "2025-06-13T08:02:56Z"
+            },
+            {
+                "name": "Build on Windows",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 9,
+                "started_at": "2025-06-13T08:02:56Z",
+                "completed_at": "2025-06-13T08:03:20Z"
+            },
+            {
+                "name": "Post Set up Python",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 17,
+                "started_at": "2025-06-13T08:03:20Z",
+                "completed_at": "2025-06-13T08:03:20Z"
+            },
+            {
+                "name": "Post Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18,
+                "started_at": "2025-06-13T08:03:20Z",
+                "completed_at": "2025-06-13T08:03:23Z"
+            },
+            {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19,
+                "started_at": "2025-06-13T08:03:23Z",
+                "completed_at": "2025-06-13T08:03:23Z"
+            }
+        ],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587685",
+        "labels": [
+            "windows-2019"
+        ],
+        "runner_id": 1000000013,
+        "runner_name": "GitHub Actions 1000000013",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+    },
+    {
+        "id": 44030587704,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zOA",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587704",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587704",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:18Z",
+        "completed_at": "2025-06-13T08:03:53Z",
+        "name": "ZLIB msys-cxx17 windows-2019",
+        "steps": [
+            {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-06-13T08:01:19Z",
+                "completed_at": "2025-06-13T08:01:20Z"
+            },
+            {
+                "name": "Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-06-13T08:01:20Z",
+                "completed_at": "2025-06-13T08:01:43Z"
+            },
+            {
+                "name": "Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-06-13T08:01:43Z",
+                "completed_at": "2025-06-13T08:02:42Z"
+            },
+            {
+                "name": "Set up Python environment variable (Unix)",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 4,
+                "started_at": "2025-06-13T08:02:42Z",
+                "completed_at": "2025-06-13T08:02:42Z"
+            },
+            {
+                "name": "Set up Python environment variable (Windows)",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-06-13T08:02:42Z",
+                "completed_at": "2025-06-13T08:02:52Z"
+            },
+            {
+                "name": "Extract branch name",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2025-06-13T08:02:52Z",
+                "completed_at": "2025-06-13T08:02:52Z"
+            },
+            {
+                "name": "Build hunter_tests Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2025-06-13T08:02:52Z",
+                "completed_at": "2025-06-13T08:02:52Z"
+            },
+            {
+                "name": "Build on Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2025-06-13T08:02:52Z",
+                "completed_at": "2025-06-13T08:02:52Z"
+            },
+            {
+                "name": "Build on Windows",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9,
+                "started_at": "2025-06-13T08:02:52Z",
+                "completed_at": "2025-06-13T08:03:49Z"
+            },
+            {
+                "name": "Post Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2025-06-13T08:03:49Z",
+                "completed_at": "2025-06-13T08:03:49Z"
+            },
+            {
+                "name": "Post Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18,
+                "started_at": "2025-06-13T08:03:49Z",
+                "completed_at": "2025-06-13T08:03:52Z"
+            },
+            {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19,
+                "started_at": "2025-06-13T08:03:52Z",
+                "completed_at": "2025-06-13T08:03:52Z"
+            }
+        ],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587704",
+        "labels": [
+            "windows-2019"
+        ],
+        "runner_id": 1000000018,
+        "runner_name": "GitHub Actions 1000000018",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+    },
+    {
+        "id": 44030587689,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zKQ",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587689",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587689",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:19Z",
+        "completed_at": "2025-06-13T08:03:43Z",
+        "name": "ZLIB ninja-vs-16-2019-win64-cxx17 windows-2019",
+        "steps": [
+            {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-06-13T08:01:20Z",
+                "completed_at": "2025-06-13T08:01:21Z"
+            },
+            {
+                "name": "Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-06-13T08:01:21Z",
+                "completed_at": "2025-06-13T08:01:41Z"
+            },
+            {
+                "name": "Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-06-13T08:01:41Z",
+                "completed_at": "2025-06-13T08:02:33Z"
+            },
+            {
+                "name": "Set up Python environment variable (Unix)",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 4,
+                "started_at": "2025-06-13T08:02:33Z",
+                "completed_at": "2025-06-13T08:02:33Z"
+            },
+            {
+                "name": "Set up Python environment variable (Windows)",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-06-13T08:02:33Z",
+                "completed_at": "2025-06-13T08:02:43Z"
+            },
+            {
+                "name": "Extract branch name",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2025-06-13T08:02:43Z",
+                "completed_at": "2025-06-13T08:02:43Z"
+            },
+            {
+                "name": "Build hunter_tests Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2025-06-13T08:02:43Z",
+                "completed_at": "2025-06-13T08:02:43Z"
+            },
+            {
+                "name": "Build on Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2025-06-13T08:02:43Z",
+                "completed_at": "2025-06-13T08:02:43Z"
+            },
+            {
+                "name": "Build on Windows",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9,
+                "started_at": "2025-06-13T08:02:43Z",
+                "completed_at": "2025-06-13T08:03:39Z"
+            },
+            {
+                "name": "Post Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2025-06-13T08:03:39Z",
+                "completed_at": "2025-06-13T08:03:39Z"
+            },
+            {
+                "name": "Post Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18,
+                "started_at": "2025-06-13T08:03:39Z",
+                "completed_at": "2025-06-13T08:03:42Z"
+            },
+            {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19,
+                "started_at": "2025-06-13T08:03:42Z",
+                "completed_at": "2025-06-13T08:03:42Z"
+            }
+        ],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587689",
+        "labels": [
+            "windows-2019"
+        ],
+        "runner_id": 1000000021,
+        "runner_name": "GitHub Actions 1000000021",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+    },
+    {
+        "id": 44030587698,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zMg",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587698",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587698",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:18Z",
+        "completed_at": "2025-06-13T08:04:05Z",
+        "name": "ZLIB nmake-vs-16-2019-win64-cxx17 windows-2019",
+        "steps": [
+            {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-06-13T08:01:19Z",
+                "completed_at": "2025-06-13T08:01:20Z"
+            },
+            {
+                "name": "Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-06-13T08:01:20Z",
+                "completed_at": "2025-06-13T08:01:45Z"
+            },
+            {
+                "name": "Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-06-13T08:01:45Z",
+                "completed_at": "2025-06-13T08:02:42Z"
+            },
+            {
+                "name": "Set up Python environment variable (Unix)",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 4,
+                "started_at": "2025-06-13T08:02:42Z",
+                "completed_at": "2025-06-13T08:02:42Z"
+            },
+            {
+                "name": "Set up Python environment variable (Windows)",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-06-13T08:02:42Z",
+                "completed_at": "2025-06-13T08:02:52Z"
+            },
+            {
+                "name": "Extract branch name",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2025-06-13T08:02:52Z",
+                "completed_at": "2025-06-13T08:02:52Z"
+            },
+            {
+                "name": "Build hunter_tests Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2025-06-13T08:02:52Z",
+                "completed_at": "2025-06-13T08:02:52Z"
+            },
+            {
+                "name": "Build on Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2025-06-13T08:02:52Z",
+                "completed_at": "2025-06-13T08:02:52Z"
+            },
+            {
+                "name": "Build on Windows",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9,
+                "started_at": "2025-06-13T08:02:52Z",
+                "completed_at": "2025-06-13T08:04:00Z"
+            },
+            {
+                "name": "Post Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2025-06-13T08:04:00Z",
+                "completed_at": "2025-06-13T08:04:01Z"
+            },
+            {
+                "name": "Post Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18,
+                "started_at": "2025-06-13T08:04:01Z",
+                "completed_at": "2025-06-13T08:04:04Z"
+            },
+            {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19,
+                "started_at": "2025-06-13T08:04:04Z",
+                "completed_at": "2025-06-13T08:04:04Z"
+            }
+        ],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587698",
+        "labels": [
+            "windows-2019"
+        ],
+        "runner_id": 1000000020,
+        "runner_name": "GitHub Actions 1000000020",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+    },
+    {
+        "id": 44030587734,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zVg",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587734",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587734",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-14T08:01:13Z",
+        "completed_at": "2025-06-14T08:01:13Z",
+        "name": "ZLIB osx-12-3-arch-universal2-cxx17 macos-12",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587734",
+        "labels": [
+            "macos-12"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587647,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1y_w",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587647",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587647",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:13Z",
+        "completed_at": "2025-06-13T08:01:14Z",
+        "name": "ZLIB sanitize-address-cxx17 ubuntu-20.04",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587647",
+        "labels": [
+            "ubuntu-20.04"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587657,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zCQ",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587657",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587657",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:13Z",
+        "completed_at": "2025-06-13T08:01:13Z",
+        "name": "ZLIB sanitize-leak-cxx17 ubuntu-20.04",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587657",
+        "labels": [
+            "ubuntu-20.04"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587696,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zMA",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587696",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587696",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:13Z",
+        "completed_at": "2025-06-13T08:01:13Z",
+        "name": "ZLIB sanitize-thread-cxx17 ubuntu-20.04",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587696",
+        "labels": [
+            "ubuntu-20.04"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+    },
+    {
+        "id": 44030587687,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zJw",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587687",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587687",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:17Z",
+        "completed_at": "2025-06-13T08:03:55Z",
+        "name": "ZLIB vs-16-2019-win64-sdk-10-0-18362-0-cxx17 windows-2019",
+        "steps": [
+            {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-06-13T08:01:19Z",
+                "completed_at": "2025-06-13T08:01:20Z"
+            },
+            {
+                "name": "Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-06-13T08:01:20Z",
+                "completed_at": "2025-06-13T08:01:40Z"
+            },
+            {
+                "name": "Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-06-13T08:01:40Z",
+                "completed_at": "2025-06-13T08:02:24Z"
+            },
+            {
+                "name": "Set up Python environment variable (Unix)",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 4,
+                "started_at": "2025-06-13T08:02:24Z",
+                "completed_at": "2025-06-13T08:02:24Z"
+            },
+            {
+                "name": "Set up Python environment variable (Windows)",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-06-13T08:02:24Z",
+                "completed_at": "2025-06-13T08:02:29Z"
+            },
+            {
+                "name": "Extract branch name",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2025-06-13T08:02:29Z",
+                "completed_at": "2025-06-13T08:02:30Z"
+            },
+            {
+                "name": "Build hunter_tests Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2025-06-13T08:02:30Z",
+                "completed_at": "2025-06-13T08:02:30Z"
+            },
+            {
+                "name": "Build on Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2025-06-13T08:02:30Z",
+                "completed_at": "2025-06-13T08:02:30Z"
+            },
+            {
+                "name": "Build on Windows",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9,
+                "started_at": "2025-06-13T08:02:30Z",
+                "completed_at": "2025-06-13T08:03:47Z"
+            },
+            {
+                "name": "Post Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2025-06-13T08:03:47Z",
+                "completed_at": "2025-06-13T08:03:47Z"
+            },
+            {
+                "name": "Post Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18,
+                "started_at": "2025-06-13T08:03:47Z",
+                "completed_at": "2025-06-13T08:03:50Z"
+            },
+            {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19,
+                "started_at": "2025-06-13T08:03:50Z",
+                "completed_at": "2025-06-13T08:03:51Z"
+            }
+        ],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587687",
+        "labels": [
+            "windows-2019"
+        ],
+        "runner_id": 1000000019,
+        "runner_name": "GitHub Actions 1000000019",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+    },
+    {
+        "id": 44030587692,
+        "run_id": 15629575575,
+        "workflow_name": "CI",
+        "head_branch": "rrb-7",
+        "run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/runs/15629575575",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOD8DTfM8AAAAKQG1zLA",
+        "head_sha": "922166c71a02b0cd48c668617ff603fc1fa8f86c",
+        "url": "https://api.github.com/repos/rrbpalm/hunter-gate/actions/jobs/44030587692",
+        "html_url": "https://github.com/rrbpalm/hunter-gate/actions/runs/15629575575/job/44030587692",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2025-06-13T08:01:11Z",
+        "started_at": "2025-06-13T08:01:16Z",
+        "completed_at": "2025-06-13T08:04:44Z",
+        "name": "ZLIB vs-16-2019-win64-store-10-cxx17 windows-2019",
+        "steps": [
+            {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-06-13T08:01:17Z",
+                "completed_at": "2025-06-13T08:01:18Z"
+            },
+            {
+                "name": "Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-06-13T08:01:18Z",
+                "completed_at": "2025-06-13T08:01:41Z"
+            },
+            {
+                "name": "Set up Python",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-06-13T08:01:41Z",
+                "completed_at": "2025-06-13T08:02:34Z"
+            },
+            {
+                "name": "Set up Python environment variable (Unix)",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 4,
+                "started_at": "2025-06-13T08:02:34Z",
+                "completed_at": "2025-06-13T08:02:34Z"
+            },
+            {
+                "name": "Set up Python environment variable (Windows)",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-06-13T08:02:34Z",
+                "completed_at": "2025-06-13T08:02:45Z"
+            },
+            {
+                "name": "Extract branch name",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2025-06-13T08:02:45Z",
+                "completed_at": "2025-06-13T08:02:45Z"
+            },
+            {
+                "name": "Build hunter_tests Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2025-06-13T08:02:45Z",
+                "completed_at": "2025-06-13T08:02:45Z"
+            },
+            {
+                "name": "Build on Unix",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2025-06-13T08:02:45Z",
+                "completed_at": "2025-06-13T08:02:45Z"
+            },
+            {
+                "name": "Build on Windows",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 9,
+                "started_at": "2025-06-13T08:02:45Z",
+                "completed_at": "2025-06-13T08:04:40Z"
+            },
+            {
+                "name": "Post Set up Python",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 17,
+                "started_at": "2025-06-13T08:04:40Z",
+                "completed_at": "2025-06-13T08:04:40Z"
+            },
+            {
+                "name": "Post Git checkout with submodules",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18,
+                "started_at": "2025-06-13T08:04:40Z",
+                "completed_at": "2025-06-13T08:04:43Z"
+            },
+            {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19,
+                "started_at": "2025-06-13T08:04:43Z",
+                "completed_at": "2025-06-13T08:04:43Z"
+            }
+        ],
+        "check_run_url": "https://api.github.com/repos/rrbpalm/hunter-gate/check-runs/44030587692",
+        "labels": [
+            "windows-2019"
+        ],
+        "runner_id": 1000000014,
+        "runner_name": "GitHub Actions 1000000014",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+    }
+]
