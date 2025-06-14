@@ -815,6 +815,8 @@ hunter_add_version(
 
 if(MINGW)
   hunter_pick_scheme(DEFAULT url_sha1_openssl)
+elseif(EMSCRIPTEN)
+  hunter_pick_scheme(DEFAULT url_sha1_openssl)
 elseif(WIN32)
   if("${HUNTER_OpenSSL_VERSION}" VERSION_LESS "1.1")
     hunter_pick_scheme(DEFAULT url_sha1_openssl_windows)
