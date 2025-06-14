@@ -12,6 +12,17 @@ hunter_add_version(
     PACKAGE_NAME
     ZLIB
     VERSION
+    "rrb"
+    URL
+    "https://github.com/rrbpalm/zlib/archive/rrb.tar.gz"
+    SHA1
+    5083d6e16b6d768a6ef10fdcfdc747b80392113f
+)
+
+hunter_add_version(
+    PACKAGE_NAME
+    ZLIB
+    VERSION
     "1.2.8-hunter"
     URL
     "https://github.com/hunter-packages/zlib/archive/v1.2.8-hunter.tar.gz"
